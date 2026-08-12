@@ -21,7 +21,7 @@ This repository contains **only the data and the update script**. Language-speci
 
 This dataset gives you VAT **rates** for free, offline. The language packages also include offline **format checks** against country-specific regex patterns. None of this calls VIES — format checks only verify the shape of a VAT number, not whether it actually exists.
 
-For **live VIES validation** — confirming a VAT ID is real, pulling the registered company name and address, and getting a VIES consultation number (audit-grade proof of validation) — there's **[vatnode](https://vatnode.dev)**:
+For **live VIES validation** — confirming a VAT ID is real, pulling the registered company name and address, and getting the VIES consultation number as your reference for the check — there's **[vatnode](https://vatnode.dev)**:
 
 - Live VIES validation, with national-database fallback when VIES is down
 - Registered company name, address, registration date
@@ -107,7 +107,9 @@ interface VatRate {
 
 ## Update frequency
 
-- Fetched from EC TEDB SOAP API: **daily at 07:00 UTC**
+How the daily check works, and what changed when: [vatnode.dev/data](https://vatnode.dev/data?ref=rates-readme-data).
+
+- Checked against the EC TEDB SOAP API: **daily at 07:00 UTC**, committed on any change
 - Committed on every run (version date always updated)
 - Full audit trail: `git log -- data/eu-vat-rates-data.json`
 
@@ -136,7 +138,7 @@ Language-specific packages bundle a snapshot of this data at publish time. A new
 
 ## Covered countries
 
-**EU-27** (daily auto-updates via EC TEDB):
+**EU-27** (checked daily against EC TEDB, updated on any change):
 
 `AT` `BE` `BG` `CY` `CZ` `DE` `DK` `EE` `ES` `FI` `FR` `GR` `HR` `HU` `IE` `IT` `LT` `LU` `LV` `MT` `NL` `PL` `PT` `RO` `SE` `SI` `SK`
 
