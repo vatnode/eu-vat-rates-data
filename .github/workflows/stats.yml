@@ -57,6 +57,23 @@ jobs:
           TOTAL=$(echo "$DATA" | python3 -c "import sys,json; print(json.load(sys.stdin)['downloads'])" 2>/dev/null || echo "")
           echo "total=$TOTAL" >> "$GITHUB_OUTPUT"
 
+      - name: Fetch jsDelivr CDN hits
+        id: jsdelivr
+        # Requests for the raw JSON over the CDN — people using the dataset without
+        # installing a package, which no registry download count captures.
+        run: |
+          set +e
+          fetch_hits() {
+            local period="$1"
+            local data
+            data=$(curl -fsSL --retry 5 --retry-delay 15 --retry-all-errors \
+              "https://data.jsdelivr.com/v1/stats/packages/gh/vatnode/eu-vat-rates-data?period=$period")
+            echo "$data" | python3 -c "import sys,json; print(json.load(sys.stdin)['hits']['total'])" 2>/dev/null || echo ""
+          }
+
+          echo "weekly=$(fetch_hits week)" >> "$GITHUB_OUTPUT"
+          echo "monthly=$(fetch_hits month)" >> "$GITHUB_OUTPUT"
+
       - name: Fetch GitHub stars
         id: github
         env:
@@ -96,20 +113,24 @@ jobs:
       - name: Ensure CSV header is current
         run: |
           mkdir -p stats
-          HEADER="date,npm_weekly,npm_total,pypi_weekly,packagist_monthly,packagist_total,rubygems_total,stars_js,stars_py,stars_php,stars_go,stars_rb,stars_total"
+          HEADER="date,npm_weekly,npm_total,pypi_weekly,packagist_monthly,packagist_total,rubygems_total,stars_js,stars_py,stars_php,stars_go,stars_rb,stars_total,jsdelivr_weekly,jsdelivr_monthly"
+          COLS=$(echo "$HEADER" | awk -F, '{print NF}')
           if [ ! -f stats/downloads.csv ]; then
             echo "$HEADER" > stats/downloads.csv
-          elif ! head -1 stats/downloads.csv | grep -q "^date,npm_weekly,npm_total,pypi_weekly"; then
-            # Header is outdated — replace it, keep all data rows (trim to new column count)
+          elif [ "$(head -1 stats/downloads.csv)" != "$HEADER" ]; then
+            # Header changed — new columns are always appended, so pad older rows
+            # with empty fields rather than dropping data.
             echo "$HEADER" > stats/downloads.csv.new
-            tail -n +2 stats/downloads.csv | cut -d, -f1-13 >> stats/downloads.csv.new
+            tail -n +2 stats/downloads.csv \
+              | awk -F, -v cols="$COLS" 'BEGIN{OFS=","} {for (i=NF+1; i<=cols; i++) $i=""; NF=cols; print}' \
+              >> stats/downloads.csv.new
             mv stats/downloads.csv.new stats/downloads.csv
           fi
 
       - name: Append to stats log
         run: |
           DATE=$(date -u +%Y-%m-%d)
-          echo "$DATE,${{ steps.npm.outputs.weekly }},${{ steps.npm.outputs.total }},${{ steps.pypi.outputs.weekly }},${{ steps.packagist.outputs.monthly }},${{ steps.packagist.outputs.total }},${{ steps.rubygems.outputs.total }},${{ steps.github.outputs.stars_js }},${{ steps.github.outputs.stars_py }},${{ steps.github.outputs.stars_php }},${{ steps.github.outputs.stars_go }},${{ steps.github.outputs.stars_rb }},${{ steps.github.outputs.stars_total }}" >> stats/downloads.csv
+          echo "$DATE,${{ steps.npm.outputs.weekly }},${{ steps.npm.outputs.total }},${{ steps.pypi.outputs.weekly }},${{ steps.packagist.outputs.monthly }},${{ steps.packagist.outputs.total }},${{ steps.rubygems.outputs.total }},${{ steps.github.outputs.stars_js }},${{ steps.github.outputs.stars_py }},${{ steps.github.outputs.stars_php }},${{ steps.github.outputs.stars_go }},${{ steps.github.outputs.stars_rb }},${{ steps.github.outputs.stars_total }},${{ steps.jsdelivr.outputs.weekly }},${{ steps.jsdelivr.outputs.monthly }}" >> stats/downloads.csv
 
       - name: Commit stats
         run: |
