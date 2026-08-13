@@ -1,0 +1,56 @@
+{
+  "rate_type": "standard",
+  "frozen": true,
+  "note": "Standard rate changes the Commission's own sources get wrong or omit, entered by hand against national sources. Applied last by scripts/build_history.py. Every entry states where it comes from. CI never rewrites this file. Keep it minimal: a correction belongs here only when a national source contradicts or fills a gap in the Commission record.",
+  "sources": {
+    "de-zweites-corona-steuerhilfegesetz-2020": {
+      "name": "Zweites Gesetz zur Umsetzung steuerlicher Hilfsmaßnahmen zur Bewältigung der Corona-Krise (Zweites Corona-Steuerhilfegesetz), Artikel 3, amending § 12 UStG",
+      "url": "https://www.bgbl.de/xaver/bgbl/start.xav?startbk=Bundesanzeiger_BGBl&jumpTo=bgbl120s1512.pdf",
+      "note": "Germany cut the standard rate from 19% to 16% for 1 July to 31 December 2020. Neither TEDB nor the archived TAXUD booklet records this change."
+    },
+    "ee-rahandusministeerium-kaibemaksu-ajalugu": {
+      "name": "Rahandusministeerium (Estonian Ministry of Finance), \"Käibemaksu ajalugu\" (History of VAT), compiled January 2006",
+      "url": "https://www.fin.ee/sites/default/files/documents/2020-10/kaibemaksu_ajalugu_04_01_05%20(1).doc",
+      "note": "The booklet dates Estonia's early rates by year only and gets both wrong: it has 10% from 1991 and 18% from 1993. The Ministry of Finance states the rate was initially 7%, became 10% in 1992, and rose to 18% from 20 June 1992 by decree no. 035 of the Currency Reform Committee — the same day as the kroon currency reform. Riigi Teataja carries that decree, dated 19 June 1992, under the title \"Maksumäärade muutmisest\". VAT itself took effect on 10 January 1991 under a 1990 government regulation; the 10% rate is dated to the entry into force of the Value Added Tax Act adopted on 16 October 1991."
+    }
+  },
+  "periods": {
+    "DE": [
+      {
+        "from": "2020-07-01",
+        "standard": 16.0,
+        "date_precision": "day",
+        "source": "de-zweites-corona-steuerhilfegesetz-2020"
+      },
+      {
+        "from": "2021-01-01",
+        "standard": 19.0,
+        "date_precision": "day",
+        "source": "de-zweites-corona-steuerhilfegesetz-2020"
+      }
+    ],
+    "EE": [
+      {
+        "from": "1991-01-10",
+        "standard": 7.0,
+        "date_precision": "day",
+        "source": "ee-rahandusministeerium-kaibemaksu-ajalugu"
+      },
+      {
+        "from": "1992-01-01",
+        "standard": 10.0,
+        "date_precision": "day",
+        "source": "ee-rahandusministeerium-kaibemaksu-ajalugu"
+      },
+      {
+        "from": "1992-06-20",
+        "standard": 18.0,
+        "date_precision": "day",
+        "source": "ee-rahandusministeerium-kaibemaksu-ajalugu"
+      }
+    ]
+  },
+  "replace_before": {
+    "EE": "2009-07-01"
+  }
+}

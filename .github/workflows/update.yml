@@ -36,6 +36,14 @@ jobs:
             python3 scripts/update.py
           fi
 
+      - name: Update standard rate history
+        run: |
+          if [ "${{ github.event.inputs.dry_run }}" = "true" ]; then
+            python3 scripts/update_history.py --dry-run
+          else
+            python3 scripts/update_history.py
+          fi
+
       - name: Commit and push
         if: github.event.inputs.dry_run != 'true'
         run: |
@@ -43,5 +51,8 @@ jobs:
           git config user.name "vatnode-bot"
           git config user.email "bot@vatnode.dev"
           git add data/eu-vat-rates-data.json
+          # history-pre-tedb.json is deliberately absent: the booklet extract is
+          # frozen and must never be rewritten by CI.
+          git add data/history-tedb.json data/eu-vat-rates-history.json
           git diff --staged --quiet || git commit -m "chore: update VAT rates ${DATE}"
           git push

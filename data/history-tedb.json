@@ -1,0 +1,246 @@
+{
+  "source": "European Commission TEDB",
+  "coverage_from": "2016-01-01",
+  "generated_on": "2026-08-13",
+  "periods": {
+    "AT": [
+      {
+        "from": "2016-01-01",
+        "standard": 20.0,
+        "date_precision": "day"
+      }
+    ],
+    "BE": [
+      {
+        "from": "2016-01-01",
+        "standard": 21.0,
+        "date_precision": "day"
+      }
+    ],
+    "BG": [
+      {
+        "from": "2016-01-01",
+        "standard": 20.0,
+        "date_precision": "day"
+      }
+    ],
+    "CY": [
+      {
+        "from": "2016-01-01",
+        "standard": 19.0,
+        "date_precision": "day"
+      }
+    ],
+    "CZ": [
+      {
+        "from": "2016-01-01",
+        "standard": 21.0,
+        "date_precision": "day"
+      }
+    ],
+    "DE": [
+      {
+        "from": "2016-01-01",
+        "standard": 19.0,
+        "date_precision": "day"
+      }
+    ],
+    "DK": [
+      {
+        "from": "2016-01-01",
+        "standard": 25.0,
+        "date_precision": "day"
+      }
+    ],
+    "EE": [
+      {
+        "from": "2016-01-01",
+        "standard": 20.0,
+        "date_precision": "day"
+      },
+      {
+        "from": "2024-01-01",
+        "standard": 22.0,
+        "date_precision": "day"
+      },
+      {
+        "from": "2025-07-01",
+        "standard": 24.0,
+        "date_precision": "day"
+      }
+    ],
+    "ES": [
+      {
+        "from": "2016-01-01",
+        "standard": 21.0,
+        "date_precision": "day"
+      }
+    ],
+    "FI": [
+      {
+        "from": "2016-01-01",
+        "standard": 24.0,
+        "date_precision": "day"
+      },
+      {
+        "from": "2024-09-01",
+        "standard": 25.5,
+        "date_precision": "day"
+      }
+    ],
+    "FR": [
+      {
+        "from": "2016-01-01",
+        "standard": 20.0,
+        "date_precision": "day"
+      }
+    ],
+    "GR": [
+      {
+        "from": "2016-01-01",
+        "standard": 24.0,
+        "date_precision": "day"
+      }
+    ],
+    "HR": [
+      {
+        "from": "2016-01-01",
+        "standard": 25.0,
+        "date_precision": "day"
+      }
+    ],
+    "HU": [
+      {
+        "from": "2016-01-01",
+        "standard": 27.0,
+        "date_precision": "day"
+      }
+    ],
+    "IE": [
+      {
+        "from": "2016-01-01",
+        "standard": 23.0,
+        "date_precision": "day"
+      },
+      {
+        "from": "2020-09-01",
+        "standard": 21.0,
+        "date_precision": "day"
+      },
+      {
+        "from": "2021-03-01",
+        "standard": 23.0,
+        "date_precision": "day"
+      }
+    ],
+    "IT": [
+      {
+        "from": "2016-01-01",
+        "standard": 22.0,
+        "date_precision": "day"
+      }
+    ],
+    "LT": [
+      {
+        "from": "2016-01-01",
+        "standard": 21.0,
+        "date_precision": "day"
+      }
+    ],
+    "LU": [
+      {
+        "from": "2016-01-01",
+        "standard": 17.0,
+        "date_precision": "day"
+      },
+      {
+        "from": "2023-01-01",
+        "standard": 16.0,
+        "date_precision": "day"
+      },
+      {
+        "from": "2024-01-01",
+        "standard": 17.0,
+        "date_precision": "day"
+      }
+    ],
+    "LV": [
+      {
+        "from": "2016-01-01",
+        "standard": 21.0,
+        "date_precision": "day"
+      }
+    ],
+    "MT": [
+      {
+        "from": "2016-01-01",
+        "standard": 18.0,
+        "date_precision": "day"
+      }
+    ],
+    "PL": [
+      {
+        "from": "2016-01-01",
+        "standard": 23.0,
+        "date_precision": "day"
+      }
+    ],
+    "PT": [
+      {
+        "from": "2016-01-01",
+        "standard": 23.0,
+        "date_precision": "day"
+      }
+    ],
+    "RO": [
+      {
+        "from": "2016-01-01",
+        "standard": 20.0,
+        "date_precision": "day"
+      },
+      {
+        "from": "2017-01-01",
+        "standard": 19.0,
+        "date_precision": "day"
+      },
+      {
+        "from": "2025-08-01",
+        "standard": 21.0,
+        "date_precision": "day"
+      }
+    ],
+    "SE": [
+      {
+        "from": "2016-01-01",
+        "standard": 25.0,
+        "date_precision": "day"
+      }
+    ],
+    "SK": [
+      {
+        "from": "2016-01-01",
+        "standard": 20.0,
+        "date_precision": "day"
+      },
+      {
+        "from": "2025-01-01",
+        "standard": 23.0,
+        "date_precision": "day"
+      }
+    ],
+    "SI": [
+      {
+        "from": "2016-06-01",
+        "standard": 22.0,
+        "date_precision": "month"
+      }
+    ],
+    "NL": [
+      {
+        "from": "2016-07-01",
+        "standard": 21.0,
+        "date_precision": "month"
+      }
+    ]
+  }
+}

@@ -1,0 +1,1356 @@
+{
+  "version": "2026-08-13",
+  "rate_type": "standard",
+  "coverage": {
+    "from": "1967-07-03",
+    "tedb_from": "2017-01-01"
+  },
+  "sources": {
+    "ec-taxud-booklet-2021-06": {
+      "name": "European Commission, DG TAXUD — \"VAT rates applied in the Member States of the European Union\", section VIII \"The evolution of VAT rates applicable in the Member States\"",
+      "edition": "2021-06",
+      "url": "https://taxation-customs.ec.europa.eu/system/files/2021-06/vat_rates_en.pdf",
+      "note": "Publication discontinued in favour of TEDB. Transcribed once and frozen; not regenerated automatically."
+    },
+    "tedb": {
+      "name": "European Commission — Taxes in Europe Database (TEDB)",
+      "url": "https://ec.europa.eu/taxation_customs/tedb/",
+      "note": "Queried via the VatRetrievalService SOAP endpoint. Returns no data before 2016-01-01."
+    },
+    "de-zweites-corona-steuerhilfegesetz-2020": {
+      "name": "Zweites Gesetz zur Umsetzung steuerlicher Hilfsmaßnahmen zur Bewältigung der Corona-Krise (Zweites Corona-Steuerhilfegesetz), Artikel 3, amending § 12 UStG",
+      "url": "https://www.bgbl.de/xaver/bgbl/start.xav?startbk=Bundesanzeiger_BGBl&jumpTo=bgbl120s1512.pdf",
+      "note": "Germany cut the standard rate from 19% to 16% for 1 July to 31 December 2020. Neither TEDB nor the archived TAXUD booklet records this change."
+    },
+    "ee-rahandusministeerium-kaibemaksu-ajalugu": {
+      "name": "Rahandusministeerium (Estonian Ministry of Finance), \"Käibemaksu ajalugu\" (History of VAT), compiled January 2006",
+      "url": "https://www.fin.ee/sites/default/files/documents/2020-10/kaibemaksu_ajalugu_04_01_05%20(1).doc",
+      "note": "The booklet dates Estonia's early rates by year only and gets both wrong: it has 10% from 1991 and 18% from 1993. The Ministry of Finance states the rate was initially 7%, became 10% in 1992, and rose to 18% from 20 June 1992 by decree no. 035 of the Currency Reform Committee — the same day as the kroon currency reform. Riigi Teataja carries that decree, dated 19 June 1992, under the title \"Maksumäärade muutmisest\". VAT itself took effect on 10 January 1991 under a 1990 government regulation; the 10% rate is dated to the entry into force of the Value Added Tax Act adopted on 16 October 1991."
+    }
+  },
+  "history": {
+    "AT": {
+      "country": "Austria",
+      "periods": [
+        {
+          "from": "1973-01-01",
+          "date_precision": "day",
+          "standard": 16.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "1975-12-31"
+        },
+        {
+          "from": "1976-01-01",
+          "date_precision": "day",
+          "standard": 18.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "1983-12-31"
+        },
+        {
+          "from": "1984-01-01",
+          "date_precision": "day",
+          "standard": 20.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": null
+        }
+      ]
+    },
+    "BE": {
+      "country": "Belgium",
+      "periods": [
+        {
+          "from": "1971-01-01",
+          "date_precision": "day",
+          "standard": 18.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "1977-12-31"
+        },
+        {
+          "from": "1978-01-01",
+          "date_precision": "day",
+          "standard": 16.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "1981-06-30"
+        },
+        {
+          "from": "1981-07-01",
+          "date_precision": "day",
+          "standard": 17.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "1982-12-31"
+        },
+        {
+          "from": "1983-01-01",
+          "date_precision": "day",
+          "standard": 19.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "1992-03-31"
+        },
+        {
+          "from": "1992-04-01",
+          "date_precision": "day",
+          "standard": 19.5,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "1993-12-31"
+        },
+        {
+          "from": "1994-01-01",
+          "date_precision": "day",
+          "standard": 20.5,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "1995-12-31"
+        },
+        {
+          "from": "1996-01-01",
+          "date_precision": "day",
+          "standard": 21.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": null
+        }
+      ]
+    },
+    "BG": {
+      "country": "Bulgaria",
+      "periods": [
+        {
+          "from": "1994-04-01",
+          "date_precision": "day",
+          "standard": 18.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "1996-06-30"
+        },
+        {
+          "from": "1996-07-01",
+          "date_precision": "day",
+          "standard": 22.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "1998-12-31"
+        },
+        {
+          "from": "1999-01-01",
+          "date_precision": "day",
+          "standard": 20.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": null
+        }
+      ]
+    },
+    "CY": {
+      "country": "Cyprus",
+      "periods": [
+        {
+          "from": "1992-07-01",
+          "date_precision": "day",
+          "standard": 5.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "1993-09-30"
+        },
+        {
+          "from": "1993-10-01",
+          "date_precision": "day",
+          "standard": 8.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "2000-06-30"
+        },
+        {
+          "from": "2000-07-01",
+          "date_precision": "day",
+          "standard": 10.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "2002-06-30"
+        },
+        {
+          "from": "2002-07-01",
+          "date_precision": "day",
+          "standard": 13.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "2002-12-31"
+        },
+        {
+          "from": "2003-01-01",
+          "date_precision": "day",
+          "standard": 15.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "2012-02-29"
+        },
+        {
+          "from": "2012-03-01",
+          "date_precision": "day",
+          "standard": 17.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "2013-01-13"
+        },
+        {
+          "from": "2013-01-14",
+          "date_precision": "day",
+          "standard": 18.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "2014-01-12"
+        },
+        {
+          "from": "2014-01-13",
+          "date_precision": "day",
+          "standard": 19.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": null
+        }
+      ]
+    },
+    "CZ": {
+      "country": "Czech Republic",
+      "periods": [
+        {
+          "from": "1993-01-01",
+          "date_precision": "day",
+          "standard": 23.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "1994-12-31"
+        },
+        {
+          "from": "1995-01-01",
+          "date_precision": "day",
+          "standard": 22.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "2004-04-30"
+        },
+        {
+          "from": "2004-05-01",
+          "date_precision": "day",
+          "standard": 19.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "2009-12-31"
+        },
+        {
+          "from": "2010-01-01",
+          "date_precision": "day",
+          "standard": 20.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "2012-12-31"
+        },
+        {
+          "from": "2013-01-01",
+          "date_precision": "day",
+          "standard": 21.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": null
+        }
+      ]
+    },
+    "DE": {
+      "country": "Germany",
+      "periods": [
+        {
+          "from": "1968-01-01",
+          "date_precision": "day",
+          "standard": 10.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "1968-06-30"
+        },
+        {
+          "from": "1968-07-01",
+          "date_precision": "day",
+          "standard": 11.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "1977-12-31"
+        },
+        {
+          "from": "1978-01-01",
+          "date_precision": "day",
+          "standard": 12.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "1979-06-30"
+        },
+        {
+          "from": "1979-07-01",
+          "date_precision": "day",
+          "standard": 13.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "1983-06-30"
+        },
+        {
+          "from": "1983-07-01",
+          "date_precision": "day",
+          "standard": 14.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "1992-12-31"
+        },
+        {
+          "from": "1993-01-01",
+          "date_precision": "day",
+          "standard": 15.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "1998-03-31"
+        },
+        {
+          "from": "1998-04-01",
+          "date_precision": "day",
+          "standard": 16.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "2006-12-31"
+        },
+        {
+          "from": "2007-01-01",
+          "date_precision": "day",
+          "standard": 19.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "2020-06-30"
+        },
+        {
+          "from": "2020-07-01",
+          "standard": 16.0,
+          "date_precision": "day",
+          "source": "de-zweites-corona-steuerhilfegesetz-2020",
+          "to": "2020-12-31"
+        },
+        {
+          "from": "2021-01-01",
+          "standard": 19.0,
+          "date_precision": "day",
+          "source": "de-zweites-corona-steuerhilfegesetz-2020",
+          "to": null
+        }
+      ]
+    },
+    "DK": {
+      "country": "Denmark",
+      "periods": [
+        {
+          "from": "1967-07-03",
+          "date_precision": "day",
+          "standard": 10.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "1968-03-31"
+        },
+        {
+          "from": "1968-04-01",
+          "date_precision": "day",
+          "standard": 12.5,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "1970-06-28"
+        },
+        {
+          "from": "1970-06-29",
+          "date_precision": "day",
+          "standard": 15.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "1977-10-02"
+        },
+        {
+          "from": "1977-10-03",
+          "date_precision": "day",
+          "standard": 18.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "1978-09-30"
+        },
+        {
+          "from": "1978-10-01",
+          "date_precision": "day",
+          "standard": 20.25,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "1980-06-29"
+        },
+        {
+          "from": "1980-06-30",
+          "date_precision": "day",
+          "standard": 22.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "1991-12-31"
+        },
+        {
+          "from": "1992-01-01",
+          "date_precision": "day",
+          "standard": 25.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": null
+        }
+      ]
+    },
+    "EE": {
+      "country": "Estonia",
+      "periods": [
+        {
+          "from": "1991-01-10",
+          "standard": 7.0,
+          "date_precision": "day",
+          "source": "ee-rahandusministeerium-kaibemaksu-ajalugu",
+          "to": "1991-12-31"
+        },
+        {
+          "from": "1992-01-01",
+          "standard": 10.0,
+          "date_precision": "day",
+          "source": "ee-rahandusministeerium-kaibemaksu-ajalugu",
+          "to": "1992-06-19"
+        },
+        {
+          "from": "1992-06-20",
+          "standard": 18.0,
+          "date_precision": "day",
+          "source": "ee-rahandusministeerium-kaibemaksu-ajalugu",
+          "to": "2009-06-30"
+        },
+        {
+          "from": "2009-07-01",
+          "date_precision": "day",
+          "standard": 20.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "2023-12-31"
+        },
+        {
+          "from": "2024-01-01",
+          "standard": 22.0,
+          "date_precision": "day",
+          "source": "tedb",
+          "to": "2025-06-30"
+        },
+        {
+          "from": "2025-07-01",
+          "standard": 24.0,
+          "date_precision": "day",
+          "source": "tedb",
+          "to": null
+        }
+      ]
+    },
+    "ES": {
+      "country": "Spain",
+      "periods": [
+        {
+          "from": "1986-01-01",
+          "date_precision": "day",
+          "standard": 12.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "1991-12-31"
+        },
+        {
+          "from": "1992-01-01",
+          "date_precision": "day",
+          "standard": 13.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "1992-07-31"
+        },
+        {
+          "from": "1992-08-01",
+          "date_precision": "day",
+          "standard": 15.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "1994-12-31"
+        },
+        {
+          "from": "1995-01-01",
+          "date_precision": "day",
+          "standard": 16.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "2010-06-30"
+        },
+        {
+          "from": "2010-07-01",
+          "date_precision": "day",
+          "standard": 18.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "2012-08-31"
+        },
+        {
+          "from": "2012-09-01",
+          "date_precision": "day",
+          "standard": 21.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": null
+        }
+      ]
+    },
+    "FI": {
+      "country": "Finland",
+      "periods": [
+        {
+          "from": "1994-06-01",
+          "date_precision": "day",
+          "standard": 22.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "2010-06-30"
+        },
+        {
+          "from": "2010-07-01",
+          "date_precision": "day",
+          "standard": 23.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "2012-12-31"
+        },
+        {
+          "from": "2013-01-01",
+          "date_precision": "day",
+          "standard": 24.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "2024-08-31"
+        },
+        {
+          "from": "2024-09-01",
+          "standard": 25.5,
+          "date_precision": "day",
+          "source": "tedb",
+          "to": null
+        }
+      ]
+    },
+    "FR": {
+      "country": "France",
+      "periods": [
+        {
+          "from": "1968-01-01",
+          "date_precision": "day",
+          "standard": 16.66,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "1968-11-30"
+        },
+        {
+          "from": "1968-12-01",
+          "date_precision": "day",
+          "standard": 19.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "1969-12-31"
+        },
+        {
+          "from": "1970-01-01",
+          "date_precision": "day",
+          "standard": 23.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "1972-12-31"
+        },
+        {
+          "from": "1973-01-01",
+          "date_precision": "day",
+          "standard": 20.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "1976-12-31"
+        },
+        {
+          "from": "1977-01-01",
+          "date_precision": "day",
+          "standard": 17.6,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "1982-06-30"
+        },
+        {
+          "from": "1982-07-01",
+          "date_precision": "day",
+          "standard": 18.6,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "1995-07-31"
+        },
+        {
+          "from": "1995-08-01",
+          "date_precision": "day",
+          "standard": 20.6,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "2000-03-31"
+        },
+        {
+          "from": "2000-04-01",
+          "date_precision": "day",
+          "standard": 19.6,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "2013-12-31"
+        },
+        {
+          "from": "2014-01-01",
+          "date_precision": "day",
+          "standard": 20.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": null
+        }
+      ]
+    },
+    "GR": {
+      "country": "Greece",
+      "periods": [
+        {
+          "from": "1987-01-01",
+          "date_precision": "day",
+          "standard": 18.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "1987-12-31"
+        },
+        {
+          "from": "1988-01-01",
+          "date_precision": "day",
+          "standard": 16.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "1990-04-27"
+        },
+        {
+          "from": "1990-04-28",
+          "date_precision": "day",
+          "standard": 18.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "2005-03-31"
+        },
+        {
+          "from": "2005-04-01",
+          "date_precision": "day",
+          "standard": 19.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "2010-03-14"
+        },
+        {
+          "from": "2010-03-15",
+          "date_precision": "day",
+          "standard": 21.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "2010-06-30"
+        },
+        {
+          "from": "2010-07-01",
+          "date_precision": "day",
+          "standard": 23.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "2016-05-31"
+        },
+        {
+          "from": "2016-06-01",
+          "date_precision": "day",
+          "standard": 24.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": null
+        }
+      ]
+    },
+    "HR": {
+      "country": "Croatia",
+      "periods": [
+        {
+          "from": "1998-08-01",
+          "date_precision": "day",
+          "standard": 22.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "2009-07-31"
+        },
+        {
+          "from": "2009-08-01",
+          "date_precision": "day",
+          "standard": 23.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "2012-02-29"
+        },
+        {
+          "from": "2012-03-01",
+          "date_precision": "day",
+          "standard": 25.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": null
+        }
+      ]
+    },
+    "HU": {
+      "country": "Hungary",
+      "periods": [
+        {
+          "from": "1988-01-01",
+          "date_precision": "day",
+          "standard": 25.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "2005-12-31"
+        },
+        {
+          "from": "2006-01-01",
+          "date_precision": "day",
+          "standard": 20.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "2009-06-30"
+        },
+        {
+          "from": "2009-07-01",
+          "date_precision": "day",
+          "standard": 25.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "2011-12-31"
+        },
+        {
+          "from": "2012-01-01",
+          "date_precision": "day",
+          "standard": 27.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": null
+        }
+      ]
+    },
+    "IE": {
+      "country": "Ireland",
+      "periods": [
+        {
+          "from": "1972-11-01",
+          "date_precision": "day",
+          "standard": 16.37,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "1973-09-02"
+        },
+        {
+          "from": "1973-09-03",
+          "date_precision": "day",
+          "standard": 19.5,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "1976-02-29"
+        },
+        {
+          "from": "1976-03-01",
+          "date_precision": "day",
+          "standard": 20.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "1980-04-30"
+        },
+        {
+          "from": "1980-05-01",
+          "date_precision": "day",
+          "standard": 25.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "1982-04-30"
+        },
+        {
+          "from": "1982-05-01",
+          "date_precision": "day",
+          "standard": 30.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "1983-02-28"
+        },
+        {
+          "from": "1983-03-01",
+          "date_precision": "day",
+          "standard": 35.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "1983-04-30"
+        },
+        {
+          "from": "1983-05-01",
+          "date_precision": "day",
+          "standard": null,
+          "standard_values": [
+            23.0,
+            35.0
+          ],
+          "ambiguous": true,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "1985-02-28"
+        },
+        {
+          "from": "1985-03-01",
+          "date_precision": "day",
+          "standard": 23.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "1986-02-28"
+        },
+        {
+          "from": "1986-03-01",
+          "date_precision": "day",
+          "standard": 25.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "1990-02-28"
+        },
+        {
+          "from": "1990-03-01",
+          "date_precision": "day",
+          "standard": 23.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "1991-02-28"
+        },
+        {
+          "from": "1991-03-01",
+          "date_precision": "day",
+          "standard": 21.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "2000-12-31"
+        },
+        {
+          "from": "2001-01-01",
+          "date_precision": "day",
+          "standard": 20.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "2002-02-28"
+        },
+        {
+          "from": "2002-03-01",
+          "date_precision": "day",
+          "standard": 21.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "2008-11-30"
+        },
+        {
+          "from": "2008-12-01",
+          "date_precision": "day",
+          "standard": 21.5,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "2009-12-31"
+        },
+        {
+          "from": "2010-01-01",
+          "date_precision": "day",
+          "standard": 21.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "2011-12-31"
+        },
+        {
+          "from": "2012-01-01",
+          "date_precision": "day",
+          "standard": 23.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "2020-08-31"
+        },
+        {
+          "from": "2020-09-01",
+          "standard": 21.0,
+          "date_precision": "day",
+          "source": "tedb",
+          "to": "2021-02-28"
+        },
+        {
+          "from": "2021-03-01",
+          "standard": 23.0,
+          "date_precision": "day",
+          "source": "tedb",
+          "to": null
+        }
+      ]
+    },
+    "IT": {
+      "country": "Italy",
+      "periods": [
+        {
+          "from": "1973-01-01",
+          "date_precision": "day",
+          "standard": 12.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "1977-02-07"
+        },
+        {
+          "from": "1977-02-08",
+          "date_precision": "day",
+          "standard": 14.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "1980-07-02"
+        },
+        {
+          "from": "1980-07-03",
+          "date_precision": "day",
+          "standard": 15.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "1980-10-31"
+        },
+        {
+          "from": "1980-11-01",
+          "date_precision": "day",
+          "standard": 14.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "1980-12-31"
+        },
+        {
+          "from": "1981-01-01",
+          "date_precision": "day",
+          "standard": 15.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "1982-08-04"
+        },
+        {
+          "from": "1982-08-05",
+          "date_precision": "day",
+          "standard": 18.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "1988-07-31"
+        },
+        {
+          "from": "1988-08-01",
+          "date_precision": "day",
+          "standard": 19.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "1997-09-30"
+        },
+        {
+          "from": "1997-10-01",
+          "date_precision": "day",
+          "standard": 20.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "2011-09-16"
+        },
+        {
+          "from": "2011-09-17",
+          "date_precision": "day",
+          "standard": 21.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "2013-09-30"
+        },
+        {
+          "from": "2013-10-01",
+          "date_precision": "day",
+          "standard": 22.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": null
+        }
+      ]
+    },
+    "LT": {
+      "country": "Lithuania",
+      "periods": [
+        {
+          "from": "1994-05-01",
+          "date_precision": "day",
+          "standard": 18.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "2008-12-31"
+        },
+        {
+          "from": "2009-01-01",
+          "date_precision": "day",
+          "standard": 19.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "2009-08-31"
+        },
+        {
+          "from": "2009-09-01",
+          "date_precision": "day",
+          "standard": 21.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": null
+        }
+      ]
+    },
+    "LU": {
+      "country": "Luxembourg",
+      "periods": [
+        {
+          "from": "1970-01-01",
+          "date_precision": "day",
+          "standard": 8.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "1970-12-31"
+        },
+        {
+          "from": "1971-01-01",
+          "date_precision": "day",
+          "standard": 10.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "1983-06-30"
+        },
+        {
+          "from": "1983-07-01",
+          "date_precision": "day",
+          "standard": 12.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "1991-12-31"
+        },
+        {
+          "from": "1992-01-01",
+          "date_precision": "day",
+          "standard": 15.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "2014-12-31"
+        },
+        {
+          "from": "2015-01-01",
+          "date_precision": "day",
+          "standard": 17.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "2022-12-31"
+        },
+        {
+          "from": "2023-01-01",
+          "standard": 16.0,
+          "date_precision": "day",
+          "source": "tedb",
+          "to": "2023-12-31"
+        },
+        {
+          "from": "2024-01-01",
+          "standard": 17.0,
+          "date_precision": "day",
+          "source": "tedb",
+          "to": null
+        }
+      ]
+    },
+    "LV": {
+      "country": "Latvia",
+      "periods": [
+        {
+          "from": "1995-05-01",
+          "date_precision": "day",
+          "standard": 18.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "2008-12-31"
+        },
+        {
+          "from": "2009-01-01",
+          "date_precision": "day",
+          "standard": 21.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "2010-12-31"
+        },
+        {
+          "from": "2011-01-01",
+          "date_precision": "day",
+          "standard": 22.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "2012-06-30"
+        },
+        {
+          "from": "2012-07-01",
+          "date_precision": "day",
+          "standard": 21.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": null
+        }
+      ]
+    },
+    "MT": {
+      "country": "Malta",
+      "periods": [
+        {
+          "from": "1995-01-01",
+          "date_precision": "day",
+          "standard": 15.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "2003-12-31"
+        },
+        {
+          "from": "2004-01-01",
+          "date_precision": "day",
+          "standard": 18.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": null
+        }
+      ]
+    },
+    "NL": {
+      "country": "Netherlands",
+      "periods": [
+        {
+          "from": "1969-01-01",
+          "date_precision": "day",
+          "standard": 12.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "1970-12-31"
+        },
+        {
+          "from": "1971-01-01",
+          "date_precision": "day",
+          "standard": 14.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "1972-12-31"
+        },
+        {
+          "from": "1973-01-01",
+          "date_precision": "day",
+          "standard": 16.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "1975-12-31"
+        },
+        {
+          "from": "1976-01-01",
+          "date_precision": "day",
+          "standard": 18.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "1983-12-31"
+        },
+        {
+          "from": "1984-01-01",
+          "date_precision": "day",
+          "standard": 19.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "1986-09-30"
+        },
+        {
+          "from": "1986-10-01",
+          "date_precision": "day",
+          "standard": 20.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "1988-12-31"
+        },
+        {
+          "from": "1989-01-01",
+          "date_precision": "day",
+          "standard": 18.5,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "1992-09-30"
+        },
+        {
+          "from": "1992-10-01",
+          "date_precision": "day",
+          "standard": 17.5,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "2000-12-31"
+        },
+        {
+          "from": "2001-01-01",
+          "date_precision": "day",
+          "standard": 19.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "2012-09-30"
+        },
+        {
+          "from": "2012-10-01",
+          "date_precision": "day",
+          "standard": 21.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": null
+        }
+      ]
+    },
+    "PL": {
+      "country": "Poland",
+      "periods": [
+        {
+          "from": "1993-07-05",
+          "date_precision": "day",
+          "standard": 22.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "2010-12-31"
+        },
+        {
+          "from": "2011-01-01",
+          "date_precision": "day",
+          "standard": 23.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": null
+        }
+      ]
+    },
+    "PT": {
+      "country": "Portugal",
+      "periods": [
+        {
+          "from": "1986-01-01",
+          "date_precision": "day",
+          "standard": 16.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "1988-01-31"
+        },
+        {
+          "from": "1988-02-01",
+          "date_precision": "day",
+          "standard": 17.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "2002-06-04"
+        },
+        {
+          "from": "2002-06-05",
+          "date_precision": "day",
+          "standard": 19.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "2005-06-30"
+        },
+        {
+          "from": "2005-07-01",
+          "date_precision": "day",
+          "standard": 21.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "2008-06-30"
+        },
+        {
+          "from": "2008-07-01",
+          "date_precision": "day",
+          "standard": 20.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "2010-06-30"
+        },
+        {
+          "from": "2010-07-01",
+          "date_precision": "day",
+          "standard": 21.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "2010-12-31"
+        },
+        {
+          "from": "2011-01-01",
+          "date_precision": "day",
+          "standard": 23.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": null
+        }
+      ]
+    },
+    "RO": {
+      "country": "Romania",
+      "periods": [
+        {
+          "from": "1993-07-01",
+          "date_precision": "day",
+          "standard": 18.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "1998-01-31"
+        },
+        {
+          "from": "1998-02-01",
+          "date_precision": "day",
+          "standard": 22.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "1999-12-31"
+        },
+        {
+          "from": "2000-01-01",
+          "date_precision": "day",
+          "standard": 19.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "2010-06-30"
+        },
+        {
+          "from": "2010-07-01",
+          "date_precision": "day",
+          "standard": 24.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "2015-12-31"
+        },
+        {
+          "from": "2016-01-01",
+          "date_precision": "day",
+          "standard": 20.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "2016-12-31"
+        },
+        {
+          "from": "2017-01-01",
+          "standard": 19.0,
+          "date_precision": "day",
+          "source": "tedb",
+          "to": "2025-07-31"
+        },
+        {
+          "from": "2025-08-01",
+          "standard": 21.0,
+          "date_precision": "day",
+          "source": "tedb",
+          "to": null
+        }
+      ]
+    },
+    "SE": {
+      "country": "Sweden",
+      "periods": [
+        {
+          "from": "1969-01-01",
+          "date_precision": "day",
+          "standard": 11.11,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "1970-12-31"
+        },
+        {
+          "from": "1971-01-01",
+          "date_precision": "day",
+          "standard": 17.65,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "1977-05-31"
+        },
+        {
+          "from": "1977-06-01",
+          "date_precision": "day",
+          "standard": 20.63,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "1980-09-07"
+        },
+        {
+          "from": "1980-09-08",
+          "date_precision": "day",
+          "standard": 23.46,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "1981-11-15"
+        },
+        {
+          "from": "1981-11-16",
+          "date_precision": "day",
+          "standard": 21.51,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "1982-12-31"
+        },
+        {
+          "from": "1983-01-01",
+          "date_precision": "day",
+          "standard": 23.46,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "1990-06-30"
+        },
+        {
+          "from": "1990-07-01",
+          "date_precision": "day",
+          "standard": 25.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": null
+        }
+      ]
+    },
+    "SI": {
+      "country": "Slovenia",
+      "periods": [
+        {
+          "from": "1999-07-01",
+          "date_precision": "day",
+          "standard": 19.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "2001-12-31"
+        },
+        {
+          "from": "2002-01-01",
+          "date_precision": "day",
+          "standard": 20.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "2013-06-30"
+        },
+        {
+          "from": "2013-07-01",
+          "date_precision": "day",
+          "standard": 22.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": null
+        }
+      ]
+    },
+    "SK": {
+      "country": "Slovakia",
+      "periods": [
+        {
+          "from": "1993-01-01",
+          "date_precision": "day",
+          "standard": 23.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "1993-07-31"
+        },
+        {
+          "from": "1993-08-01",
+          "date_precision": "day",
+          "standard": 25.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "1995-12-31"
+        },
+        {
+          "from": "1996-01-01",
+          "date_precision": "day",
+          "standard": 23.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "2002-12-31"
+        },
+        {
+          "from": "2003-01-01",
+          "date_precision": "day",
+          "standard": 20.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "2003-12-31"
+        },
+        {
+          "from": "2004-01-01",
+          "date_precision": "day",
+          "standard": 19.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "2010-12-31"
+        },
+        {
+          "from": "2011-01-01",
+          "date_precision": "day",
+          "standard": 20.0,
+          "source": "ec-taxud-booklet-2021-06",
+          "to": "2024-12-31"
+        },
+        {
+          "from": "2025-01-01",
+          "standard": 23.0,
+          "date_precision": "day",
+          "source": "tedb",
+          "to": null
+        }
+      ]
+    }
+  }
+}

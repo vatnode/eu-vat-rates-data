@@ -105,6 +105,57 @@ interface VatRate {
 
 ---
 
+## Standard rate history
+
+`data/eu-vat-rates-history.json` is a second dataset: every change to the **standard** VAT rate in each of the EU-27, back to 1967, with the date each rate took effect. Useful when you need the rate that applied on a past date — recalculating an old invoice, an audit, a backdated correction.
+
+```
+https://cdn.jsdelivr.net/gh/vatnode/eu-vat-rates-data@main/data/eu-vat-rates-history.json
+https://raw.githubusercontent.com/vatnode/eu-vat-rates-data/main/data/eu-vat-rates-history.json
+```
+
+```json
+{
+  "rate_type": "standard",
+  "history": {
+    "DE": {
+      "country": "Germany",
+      "periods": [
+        { "from": "2007-01-01", "to": "2020-06-30", "standard": 19.0, "source": "ec-taxud-booklet-2021-06" },
+        { "from": "2020-07-01", "to": "2020-12-31", "standard": 16.0, "source": "de-zweites-corona-steuerhilfegesetz-2020" },
+        { "from": "2021-01-01", "to": null, "standard": 19.0, "source": "de-zweites-corona-steuerhilfegesetz-2020" }
+      ]
+    }
+  }
+}
+```
+
+Every period carries a `source`, resolvable through the file's `sources` block:
+
+- **`ec-taxud-booklet-2021-06`** — section VIII, "The evolution of VAT rates applicable in the Member States", of the Commission's booklet _VAT rates applied in the Member States of the European Union_ (final edition 06/2021, discontinued in favour of TEDB). Transcribed once by `scripts/parse_booklet_history.py` into the frozen `data/history-pre-tedb.json`, which CI never rewrites. Supplies everything up to the end of 2016.
+- **`tedb`** — the Taxes in Europe Database, queried date by date. Takes over from **2017-01-01**. TEDB does answer for 2016, but its record for that year is flattened: it reports Greece at 24% for all of 2016, when the rise from 23% only took effect on 1 June. The booklet dates that change correctly, so the handover sits at 2017, where the two sources agree on every member state.
+- **National legislation** — a small set of hand-entered corrections in `data/history-corrections.json`, each naming the law it comes from. Applied last, also frozen against CI.
+
+Where the two Commission sources overlap (2017 to mid-2021) they are compared, and any disagreement is reported by `scripts/build_history.py` rather than quietly resolved. They currently agree everywhere.
+
+The corrections file exists because the Commission's own record has gaps and errors. Two are known:
+
+- **Germany's cut from 19% to 16% for 1 July – 31 December 2020** appears in neither TEDB nor the booklet, though Ireland's temporary cut over almost the same window appears in both.
+- **Estonia's rates before 2009** are wrong in the booklet, which dates them by year and gives 10% from 1991 and 18% from 1993. The Estonian Ministry of Finance records 7% from 10 January 1991, 10% from 1 January 1992, and 18% from 20 June 1992 — the day of the kroon currency reform, set by decree no. 035 of the Currency Reform Committee. Those replace the booklet's account.
+
+Absence from this dataset is evidence about the Commission's record, not about national law — if you find another gap, open an issue with the legislation and it goes in the corrections file.
+
+Two fields need care:
+
+- `date_precision` says whether `from` is an exact date. Every period currently published is `"day"`. The field exists because the booklet dates a few early changes by year alone; those cases have been researched against national sources and replaced, and any that reappear would be marked `"year"` with `from` set to `YYYY-01-01` as a placeholder, not a claim about the day.
+- `standard` is `null` where a member state ran two standard rates at once — Ireland did, from 1983 to 1985. Both values are in `standard_values`, and `ambiguous` is set.
+
+Reduced, super-reduced and parking rates are **not** in the history file; only their current values are published, in `eu-vat-rates-data.json`.
+
+Which rate applies to a given supply also depends on the place-of-supply and time-of-supply rules in force at the time. This dataset does not model those.
+
+---
+
 ## Update frequency
 
 How the daily check works, and what changed when: [vatnode.dev/data](https://vatnode.dev/data?ref=rates-readme-data).
