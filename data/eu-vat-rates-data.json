@@ -331,8 +331,8 @@
       ],
       "super_reduced": null,
       "parking": null,
-      "format": "IE + 7 digits + 1–2 letters",
-      "pattern": "^IE\\d{7}[A-W][A-IW]?$|^IE\\d[A-Z+*]\\d{5}[A-W]$"
+      "format": "IE + 7 digits + 1–2 letters, or IE + 1 digit + letter/+/* + 5 digits + 1 letter",
+      "pattern": "^IE\\d{7}[A-W][AH]?$|^IE\\d[A-Z+*]\\d{5}[A-W]$"
     },
     "IS": {
       "country": "Iceland",
