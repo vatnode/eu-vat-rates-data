@@ -85,6 +85,7 @@ interface VatRate {
 {
   "version": "2026-03-31",
   "source": "European Commission TEDB",
+  "publisher": { "name": "vatnode.dev", "url": "https://vatnode.dev" },
   "rates": {
     "FI": {
       "country": "Finland",
@@ -117,6 +118,7 @@ https://raw.githubusercontent.com/vatnode/eu-vat-rates-data/main/data/eu-vat-rat
 ```json
 {
   "rate_type": "standard",
+  "publisher": { "name": "vatnode.dev", "url": "https://vatnode.dev" },
   "history": {
     "DE": {
       "country": "Germany",

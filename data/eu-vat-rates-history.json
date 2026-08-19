@@ -1,6 +1,10 @@
 {
   "version": "2026-08-19",
   "rate_type": "standard",
+  "publisher": {
+    "name": "vatnode.dev",
+    "url": "https://vatnode.dev"
+  },
   "coverage": {
     "from": "1967-07-03",
     "tedb_from": "2017-01-01"

@@ -418,6 +418,7 @@ def build_dataset(eu_rates: dict[str, dict]) -> dict:
     return {
         "version": today,
         "source":  "European Commission TEDB",
+        "publisher": {"name": "vatnode.dev", "url": "https://vatnode.dev"},
         "rates":   dict(sorted(rates_out.items())),
     }
 

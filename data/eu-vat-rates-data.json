@@ -1,6 +1,10 @@
 {
   "version": "2026-08-19",
   "source": "European Commission TEDB",
+  "publisher": {
+    "name": "vatnode.dev",
+    "url": "https://vatnode.dev"
+  },
   "rates": {
     "AD": {
       "country": "Andorra",

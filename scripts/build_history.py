@@ -249,6 +249,7 @@ def main() -> None:
     payload = {
         "version": dt.date.today().isoformat(),
         "rate_type": "standard",
+        "publisher": {"name": "vatnode.dev", "url": "https://vatnode.dev"},
         "coverage": {
             "from": min(
                 p["from"] for v in history.values() for p in v["periods"]
