@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/vatnode/eu-vat-rates-data/raw/main/schema/eu-vat-rates-data.schema.json",
+  "title": "VATNode European VAT rates dataset",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["version", "source", "publisher", "rates"],
+  "properties": {
+    "version": { "type": "string", "format": "date" },
+    "source": { "type": "string", "minLength": 1 },
+    "publisher": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "url"],
+      "properties": {
+        "name": { "type": "string", "minLength": 1 },
+        "url": { "type": "string", "format": "uri" }
+      }
+    },
+    "rates": {
+      "type": "object",
+      "minProperties": 45,
+      "maxProperties": 45,
+      "patternProperties": { "^[A-Z]{2}$": { "$ref": "#/$defs/vatRate" } },
+      "additionalProperties": false
+    }
+  },
+  "$defs": {
+    "rateOrNull": { "type": ["number", "null"], "minimum": 0, "maximum": 100 },
+    "vatRate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["country", "currency", "eu_member", "vat_name", "vat_abbr", "standard", "reduced", "super_reduced", "parking", "format", "pattern"],
+      "properties": {
+        "country": { "type": "string", "minLength": 1 },
+        "currency": { "type": "string", "pattern": "^[A-Z]{3}$" },
+        "eu_member": { "type": "boolean" },
+        "vat_name": { "type": "string", "minLength": 1 },
+        "vat_abbr": { "type": "string", "minLength": 1 },
+        "standard": { "type": "number", "exclusiveMinimum": 0, "maximum": 100 },
+        "reduced": { "type": "array", "uniqueItems": true, "items": { "type": "number", "minimum": 0, "maximum": 100 } },
+        "super_reduced": { "$ref": "#/$defs/rateOrNull" },
+        "parking": { "$ref": "#/$defs/rateOrNull" },
+        "format": { "type": "string", "minLength": 1 },
+        "pattern": { "type": "string", "minLength": 1 }
+      }
+    }
+  }
+}

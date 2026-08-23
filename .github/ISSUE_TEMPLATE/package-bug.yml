@@ -1,0 +1,31 @@
+name: Package bug
+description: Report incorrect behavior in a language package
+title: "[Package]: "
+labels: [bug]
+body:
+  - type: dropdown
+    id: ecosystem
+    attributes:
+      label: Ecosystem
+      options: [JavaScript / TypeScript, Python, PHP, Go, Ruby, Direct JSON]
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Package version and runtime version
+      placeholder: eu-vat-rates-data 2026.8.15, Node.js 22
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Minimal reproduction
+      description: Include install command, code, actual result, and expected result. Remove secrets and customer data.
+    validations:
+      required: true
+  - type: input
+    id: repository
+    attributes:
+      label: Package repository
+      description: If possible, file package-specific bugs in its own repository and link that issue here.

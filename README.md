@@ -1,216 +1,209 @@
-# eu-vat-rates-data
+# European VAT Rates — JSON and packages
 
-[![Last updated](https://img.shields.io/github/last-commit/vatnode/eu-vat-rates-data?path=data%2Feu-vat-rates-data.json&label=last%20updated)](https://github.com/vatnode/eu-vat-rates-data/commits/main/data/eu-vat-rates-data.json)
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+**Accurate European VAT rates, automatically updated from official sources. JSON + packages for JavaScript, Python, PHP, Go and Ruby.** Covers 45 European jurisdictions: every EU member state plus 18 non-EU jurisdictions.
 
-Canonical data source — VAT rates for **45 European countries**, including all EU-27 member states plus Norway, Switzerland, the United Kingdom, and more. Sourced from the European Commission TEDB (EU rates) and supplemented with non-EU European countries. Checked daily, committed automatically when rates change.
+[![Validate data](https://github.com/vatnode/eu-vat-rates-data/actions/workflows/test.yml/badge.svg)](https://github.com/vatnode/eu-vat-rates-data/actions/workflows/test.yml)
+[![Update status](https://github.com/vatnode/eu-vat-rates-data/actions/workflows/update.yml/badge.svg)](https://github.com/vatnode/eu-vat-rates-data/actions/workflows/update.yml)
+[![Last data update](https://img.shields.io/github/last-commit/vatnode/eu-vat-rates-data?path=data%2Feu-vat-rates-data.json&label=last%20data%20update)](https://github.com/vatnode/eu-vat-rates-data/commits/main/data/eu-vat-rates-data.json)
+[![npm downloads](https://img.shields.io/npm/dw/eu-vat-rates-data)](https://www.npmjs.com/package/eu-vat-rates-data)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
-This repository contains **only the data and the update script**. Language-specific packages are published separately:
+EU rates come from the European Commission Taxes in Europe Database (TEDB). The source is checked daily; normalized, validated data is published automatically. See the [methodology](https://vatnode.dev/data), [rate history](data/eu-vat-rates-history.json), and [VAT Rates website](https://vatnode.dev/vat-rates).
 
-| Language | Package | Install |
-|---|---|---|
-| JavaScript / TypeScript | [npm](https://www.npmjs.com/package/eu-vat-rates-data) | `npm install eu-vat-rates-data` |
-| Python | [PyPI](https://pypi.org/project/eu-vat-rates-data/) | `pip install eu-vat-rates-data` |
-| PHP | [Packagist](https://packagist.org/packages/vatnode/eu-vat-rates-data) | `composer require vatnode/eu-vat-rates-data` |
-| Go | [pkg.go.dev](https://pkg.go.dev/github.com/vatnode/eu-vat-rates-data-go) | `go get github.com/vatnode/eu-vat-rates-data-go` |
-| Ruby | [RubyGems](https://rubygems.org/gems/eu_vat_rates_data) | `gem install eu_vat_rates_data` |
+## Quick start
 
----
+### Direct JSON
 
-## Need live VIES validation?
-
-This dataset gives you VAT **rates** for free, offline. The language packages also include offline **format checks** against country-specific regex patterns. None of this calls VIES — format checks only verify the shape of a VAT number, not whether it actually exists.
-
-For **live VIES validation** — confirming a VAT ID is real, pulling the registered company name and address, and getting the VIES consultation number as your reference for the check — there's **[vatnode](https://vatnode.dev?ref=rates-readme-data)**:
-
-- Live VIES validation, with national-database fallback when VIES is down
-- Registered company name, address, registration date
-- VIES consultation number for compliance and audit trails
-- Webhooks for VAT status changes
-- Official [MCP server](https://www.npmjs.com/package/vatnode-mcp) so AI agents (Claude, Cursor, ChatGPT) can validate VAT IDs directly
-- Free tier — no credit card needed
-
-```bash
-curl https://api.vatnode.dev/v1/vat/IE6388047V \
-  -H "Authorization: Bearer YOUR_API_KEY"
-```
-
-[**See what the API adds →**](https://vatnode.dev/vat-rates?ref=rates-readme-data#beyond-rates) · [Get a free API key](https://vatnode.dev/login?ref=rates-readme-data)
-
----
-
-## Direct JSON access
-
-No package needed — use the JSON directly via CDN:
-
-```
-# jsDelivr CDN (cached):
+```text
 https://cdn.jsdelivr.net/gh/vatnode/eu-vat-rates-data@main/data/eu-vat-rates-data.json
-
-# Raw GitHub (always latest commit):
-https://raw.githubusercontent.com/vatnode/eu-vat-rates-data/main/data/eu-vat-rates-data.json
 ```
 
 ```js
-const res = await fetch(
+const response = await fetch(
   'https://cdn.jsdelivr.net/gh/vatnode/eu-vat-rates-data@main/data/eu-vat-rates-data.json'
 )
-const { rates } = await res.json()
+const { rates } = await response.json()
+
 console.log(rates.DE.standard) // 19
+console.log(rates.FI.reduced)  // [10, 13.5]
 ```
 
----
+jsDelivr is the recommended cached CDN endpoint. [Raw GitHub](https://raw.githubusercontent.com/vatnode/eu-vat-rates-data/main/data/eu-vat-rates-data.json) serves the file directly from the latest commit and is useful when GitHub origin semantics are preferred over CDN caching.
 
-## Data structure
+For reproducible builds, replace `@main` with a commit SHA. Package users should pin a package version or lockfile.
+
+### JavaScript / TypeScript
+
+```bash
+npm install eu-vat-rates-data
+```
+
+```ts
+import { getRate, getStandardRate, validateFormat } from 'eu-vat-rates-data'
+
+getStandardRate('DE')            // 19
+getRate('FI')?.reduced            // [10, 13.5]
+validateFormat('DE123456789')     // true: format only, not VIES status
+```
+
+### Python
+
+```bash
+pip install eu-vat-rates-data
+```
+
+```python
+from eu_vat_rates_data import get_rate, get_standard_rate, validate_format
+
+get_standard_rate("DE")          # 19.0
+get_rate("FI")["reduced"]       # [10.0, 13.5]
+validate_format("DE123456789")   # True: format only, not VIES status
+```
+
+### PHP
+
+```bash
+composer require vatnode/eu-vat-rates-data
+```
+
+```php
+use vatnode\EuVatRates\EuVatRates;
+
+EuVatRates::getStandardRate('DE');          // 19.0
+EuVatRates::getRate('FI')['reduced'];       // [10.0, 13.5]
+EuVatRates::validateFormat('DE123456789');  // true: format only
+```
+
+### Go
+
+```bash
+go get github.com/vatnode/eu-vat-rates-data-go
+```
+
+```go
+package main
+
+import (
+  "fmt"
+  euvatrates "github.com/vatnode/eu-vat-rates-data-go"
+)
+
+func main() {
+  standard, _ := euvatrates.GetStandardRate("DE")
+  fi, _ := euvatrates.GetRate("FI")
+  fmt.Println(standard, fi.Reduced)
+  fmt.Println(euvatrates.ValidateFormat("DE123456789")) // format only
+}
+```
+
+### Ruby
+
+```bash
+gem install eu_vat_rates_data
+```
+
+```ruby
+require "eu_vat_rates_data"
+
+EuVatRatesData.get_standard_rate("DE")       # 19.0
+EuVatRatesData.get_rate("FI")["reduced"]   # [10.0, 13.5]
+EuVatRatesData.valid_format?("DE123456789") # true: format only
+```
+
+Using this dataset in production or an open-source project? **A GitHub star helps other developers discover it.**
+
+## Package ecosystem
+
+| Ecosystem | Package | Install | Repository / registry |
+|---|---|---|---|
+| Direct JSON | `eu-vat-rates-data.json` | No install | [CDN](https://cdn.jsdelivr.net/gh/vatnode/eu-vat-rates-data@main/data/eu-vat-rates-data.json) · [repository](https://github.com/vatnode/eu-vat-rates-data) |
+| JavaScript / TypeScript | `eu-vat-rates-data` | `npm install eu-vat-rates-data` | [repository](https://github.com/vatnode/eu-vat-rates-data-js) · [npm](https://www.npmjs.com/package/eu-vat-rates-data) |
+| Python | `eu-vat-rates-data` | `pip install eu-vat-rates-data` | [repository](https://github.com/vatnode/eu-vat-rates-data-python) · [PyPI](https://pypi.org/project/eu-vat-rates-data/) |
+| PHP | `vatnode/eu-vat-rates-data` | `composer require vatnode/eu-vat-rates-data` | [repository](https://github.com/vatnode/eu-vat-rates-data-php) · [Packagist](https://packagist.org/packages/vatnode/eu-vat-rates-data) |
+| Go | `github.com/vatnode/eu-vat-rates-data-go` | `go get github.com/vatnode/eu-vat-rates-data-go` | [repository](https://github.com/vatnode/eu-vat-rates-data-go) · [pkg.go.dev](https://pkg.go.dev/github.com/vatnode/eu-vat-rates-data-go) |
+| Ruby | `eu_vat_rates_data` | `gem install eu_vat_rates_data` | [repository](https://github.com/vatnode/eu-vat-rates-data-ruby) · [RubyGems](https://rubygems.org/gems/eu_vat_rates_data) |
+
+All packages bundle a snapshot for offline use. The canonical repository for source data, schema, provenance, and history is this repository.
+
+## Usage and distribution
+
+The dataset is available in six distribution formats: direct JSON plus five language ecosystems. Public package and CDN request statistics are recorded weekly in [`stats/downloads.csv`](stats/downloads.csv). CDN requests are HTTP requests, **not unique users**.
+
+### CDN usage
+
+jsDelivr publishes usage statistics for the GitHub CDN endpoint. This repository records weekly and monthly request totals automatically so developers do not need to use the stats API directly. Use `@main` for automatically refreshed data or a commit SHA for reproducible builds.
+
+## Data contract
+
+The machine-readable contract is [`schema/eu-vat-rates-data.schema.json`](schema/eu-vat-rates-data.schema.json).
 
 ```ts
 interface VatRate {
-  country:       string        // "Finland"
-  currency:      string        // "EUR" (or "DKK", "GBP", …)
-  eu_member:     boolean       // true for EU-27, false for non-EU
-  vat_name:      string        // "Arvonlisävero" — official name in primary local language
-  vat_abbr:      string        // "ALV" — short abbreviation used locally
-  standard:      number        // 25.5
-  reduced:       number[]      // [10, 13.5] — sorted ascending
-  super_reduced: number | null // null when not applicable
-  parking:       number | null // null when not applicable
-  format:        string        // "FI + 8 digits" — human-readable VAT number format
-  pattern:       string        // "^FI\\d{8}$" — regex for format validation, always present
+  country: string
+  currency: string                 // ISO 4217
+  eu_member: boolean
+  vat_name: string
+  vat_abbr: string
+  standard: number                 // percentage points, e.g. 25.5
+  reduced: number[]                // sorted ascending; [] when none
+  super_reduced: number | null
+  parking: number | null
+  format: string                   // human-readable VAT ID format
+  pattern: string                  // regex format check
 }
 ```
 
-### Example JSON entry
+Top-level `version` is an ISO date, `source` names the primary source, and `rates` is keyed by country code. Codes use ISO 3166-1 alpha-2 where available; Greece is stored as `GR` although VAT IDs use the EU prefix `EL`. `XI` identifies Northern Ireland for VAT purposes and `XK` is the user-assigned code used for Kosovo.
 
-```json
-{
-  "version": "2026-03-31",
-  "source": "European Commission TEDB",
-  "publisher": { "name": "vatnode.dev", "url": "https://vatnode.dev" },
-  "rates": {
-    "FI": {
-      "country": "Finland",
-      "currency": "EUR",
-      "eu_member": true,
-      "vat_name": "Arvonlisävero",
-      "vat_abbr": "ALV",
-      "standard": 25.5,
-      "reduced": [10, 13.5],
-      "super_reduced": null,
-      "parking": null,
-      "format": "FI + 8 digits",
-      "pattern": "^FI\\d{8}$"
-    }
-  }
-}
-```
+Fields documented by the current schema are stable. The registry packages currently use date-based versions for data releases; an ordinary rate update does not change the schema. Removing a field or changing its meaning is breaking and must not ship as an ordinary date release: it requires a documented migration and a coordinated opt-in compatibility boundary across packages. Adding an optional field is non-breaking; package types are updated with the data release.
 
----
+## What changed and when?
 
-## Standard rate history
+- [Current-data commit history](https://github.com/vatnode/eu-vat-rates-data/commits/main/data/eu-vat-rates-data.json) shows every published snapshot.
+- [`data/eu-vat-rates-history.json`](data/eu-vat-rates-history.json) contains EU-27 standard-rate periods back to 1967, including effective dates and source identifiers.
+- [GitHub Releases](https://github.com/vatnode/eu-vat-rates-data/releases) summarize meaningful rate changes. Daily checks with no rate change do not create releases.
+- [`CHANGELOG.md`](CHANGELOG.md) records schema, pipeline, and correction changes rather than duplicating generated rate history.
 
-`data/eu-vat-rates-history.json` is a second dataset: every change to the **standard** VAT rate in each of the EU-27, back to 1967, with the date each rate took effect. Useful when you need the rate that applied on a past date — recalculating an old invoice, an audit, a backdated correction.
+The history dataset covers standard rates only. Reduced, super-reduced, and parking rate history is not currently published.
 
-```
-https://cdn.jsdelivr.net/gh/vatnode/eu-vat-rates-data@main/data/eu-vat-rates-history.json
-https://raw.githubusercontent.com/vatnode/eu-vat-rates-data/main/data/eu-vat-rates-history.json
-```
+## Data provenance
 
-```json
-{
-  "rate_type": "standard",
-  "publisher": { "name": "vatnode.dev", "url": "https://vatnode.dev" },
-  "history": {
-    "DE": {
-      "country": "Germany",
-      "periods": [
-        { "from": "2007-01-01", "to": "2020-06-30", "standard": 19.0, "source": "ec-taxud-booklet-2021-06" },
-        { "from": "2020-07-01", "to": "2020-12-31", "standard": 16.0, "source": "de-zweites-corona-steuerhilfegesetz-2020" },
-        { "from": "2021-01-01", "to": null, "standard": 19.0, "source": "de-zweites-corona-steuerhilfegesetz-2020" }
-      ]
-    }
-  }
-}
-```
+- **EU-27:** European Commission TEDB is the primary current-data source and is checked daily at 07:00 UTC.
+- **Non-EU jurisdictions:** maintained manually from national sources, with official sources preferred and required for new corrections. Per-entry source URLs are not yet embedded in the current dataset; treat that as a provenance limitation.
+- **Normalization:** TEDB's `EL` code is normalized to `GR`; numeric rates, rate types, currencies, membership, and VAT-number format metadata use one stable shape.
+- **Validation:** CI checks the JSON structure, country counts and codes, rate ranges, regex syntax, sorted reduced rates, and history continuity before publication.
+- **Publication:** data is committed automatically after a successful source check. Language packages publish only when actual rate values change.
 
-Every period carries a `source`, resolvable through the file's `sources` block:
+No dataset can decide which VAT treatment applies to a transaction. Product or service category, customer status, location, place-of-supply rules, exemptions, and effective dates may change the result. The format helpers check only the shape of a VAT number; they do not confirm registration through VIES. This dataset is for software integration and is not tax or legal advice.
 
-- **`ec-taxud-booklet-2021-06`** — section VIII, "The evolution of VAT rates applicable in the Member States", of the Commission's booklet _VAT rates applied in the Member States of the European Union_ (final edition 06/2021, discontinued in favour of TEDB). Transcribed once by `scripts/parse_booklet_history.py` into the frozen `data/history-pre-tedb.json`, which CI never rewrites. Supplies everything up to the end of 2016.
-- **`tedb`** — the Taxes in Europe Database, queried date by date. Takes over from **2017-01-01**. TEDB does answer for 2016, but its record for that year is flattened: it reports Greece at 24% for all of 2016, when the rise from 23% only took effect on 1 June. The booklet dates that change correctly, so the handover sits at 2017, where the two sources agree on every member state.
-- **National legislation** — a small set of hand-entered corrections in `data/history-corrections.json`, each naming the law it comes from. Applied last, also frozen against CI.
+Full methodology and limitations: [vatnode.dev/data](https://vatnode.dev/data).
 
-Where the two Commission sources overlap (2017 to mid-2021) they are compared, and any disagreement is reported by `scripts/build_history.py` rather than quietly resolved. They currently agree everywhere.
+## Coverage
 
-The corrections file exists because the Commission's own record has gaps and errors. Two are known:
+**EU-27:** `AT` `BE` `BG` `CY` `CZ` `DE` `DK` `EE` `ES` `FI` `FR` `GR` `HR` `HU` `IE` `IT` `LT` `LU` `LV` `MT` `NL` `PL` `PT` `RO` `SE` `SI` `SK`
 
-- **Germany's cut from 19% to 16% for 1 July – 31 December 2020** appears in neither TEDB nor the booklet, though Ireland's temporary cut over almost the same window appears in both.
-- **Estonia's rates before 2009** are wrong in the booklet, which dates them by year and gives 10% from 1991 and 18% from 1993. The Estonian Ministry of Finance records 7% from 10 January 1991, 10% from 1 January 1992, and 18% from 20 June 1992 — the day of the kroon currency reform, set by decree no. 035 of the Currency Reform Committee. Those replace the booklet's account.
+**Non-EU and special VAT jurisdictions:** `AD` `AL` `BA` `CH` `GB` `GE` `IS` `LI` `MC` `MD` `ME` `MK` `NO` `RS` `TR` `UA` `XI` `XK`
 
-Absence from this dataset is evidence about the Commission's record, not about national law — if you find another gap, open an issue with the legislation and it goes in the corrections file.
+## Factual feature comparison
 
-Two fields need care:
+| Capability | VATNode dataset | Hand-maintained constants | Runtime tax API |
+|---|---:|---:|---:|
+| Automatic official-source checks | Yes, daily for EU-27 | Depends on maintainer | Provider-dependent |
+| Direct JSON | Yes | Sometimes | Usually no |
+| Offline use | Yes | Yes | No |
+| Standard + reduced rate types | Yes | Implementation-dependent | Provider-dependent |
+| Standard-rate history | Yes, EU-27 | Rarely | Provider-dependent |
+| TypeScript types | Yes, npm package | Implementation-dependent | SDK-dependent |
+| Five language packages | Yes | Usually separate projects | SDK-dependent |
 
-- `date_precision` says whether `from` is an exact date. Every period currently published is `"day"`. The field exists because the booklet dates a few early changes by year alone; those cases have been researched against national sources and replaced, and any that reappear would be marked `"year"` with `from` set to `YYYY-01-01` as a placeholder, not a claim about the day.
-- `standard` is `null` where a member state ran two standard rates at once — Ireland did, from 1983 to 1985. Both values are in `standard_values`, and `ambiguous` is set.
+This compares distribution approaches, not named competitors; capabilities of individual projects and services vary.
 
-Reduced, super-reduced and parking rates are **not** in the history file; only their current values are published, in `eu-vat-rates-data.json`.
+## Contributing and support
 
-Which rate applies to a given supply also depends on the place-of-supply and time-of-supply rules in force at the time. This dataset does not model those.
+Found an incorrect rate or missing jurisdiction? Read [`CONTRIBUTING.md`](CONTRIBUTING.md) and open the matching issue template with the country, rate type, effective date, claimed value, and official source URL. Do not edit generated JSON directly.
 
----
-
-## Update frequency
-
-How the daily check works, and what changed when: [vatnode.dev/data](https://vatnode.dev/data?ref=rates-readme-data).
-
-- Checked against the EC TEDB SOAP API: **daily at 07:00 UTC**, committed on any change
-- Committed on every run (version date always updated)
-- Full audit trail: `git log -- data/eu-vat-rates-data.json`
-
-To run locally:
-
-```bash
-git clone https://github.com/vatnode/eu-vat-rates-data.git
-pip install requests
-python3 scripts/update.py
-```
-
----
-
-## Keeping rates current
-
-The JSON in this repository is updated automatically — use it directly via CDN if you need always-current data without any setup:
-
-```
-https://cdn.jsdelivr.net/gh/vatnode/eu-vat-rates-data@main/data/eu-vat-rates-data.json
-https://raw.githubusercontent.com/vatnode/eu-vat-rates-data/main/data/eu-vat-rates-data.json
-```
-
-Language-specific packages bundle a snapshot of this data at publish time. A new package version is released automatically whenever rates change, but installed packages do not update themselves. If you use a package and need rates to stay current, set up [Renovate](https://renovatebot.com) or [Dependabot](https://docs.github.com/en/code-security/dependabot) — they will open a PR automatically when a new version is published.
-
----
-
-## Covered countries
-
-**EU-27** (checked daily against EC TEDB, updated on any change):
-
-`AT` `BE` `BG` `CY` `CZ` `DE` `DK` `EE` `ES` `FI` `FR` `GR` `HR` `HU` `IE` `IT` `LT` `LU` `LV` `MT` `NL` `PL` `PT` `RO` `SE` `SI` `SK`
-
-**Non-EU Europe** (manually maintained):
-
-`AD` `AL` `BA` `CH` `GB` `GE` `IS` `LI` `MC` `MD` `ME` `MK` `NO` `RS` `TR` `UA` `XK`
-
-45 countries total.
-
----
-
-## Changelog
-
-See [CHANGELOG.md](CHANGELOG.md).
-
----
+For vulnerability reports and the support boundary, see [`SECURITY.md`](SECURITY.md).
 
 ## License
 
-MIT
-
-If you find this useful, a ⭐ on GitHub is appreciated.
+[MIT](LICENSE)

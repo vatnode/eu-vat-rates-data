@@ -6,6 +6,13 @@ history of [`data/eu-vat-rates-data.json`](https://github.com/vatnode/eu-vat-rat
 This file records changes to the data format, the update pipeline, and corrections
 to hand-maintained fields.
 
+## 2026-08-23
+
+- **added:** a machine-readable JSON Schema and offline validation for the current dataset and EU-27 standard-rate history.
+- **added:** GitHub Releases for actual dataset changes, with affected jurisdictions, old and new values, source context, package links, and audit-trail links. Checks with no data change do not create releases.
+- **added:** contribution guidance, security/support boundaries, and structured issue forms for rate, coverage, package, and source reports.
+- **changed:** the README now serves as the canonical ecosystem hub with direct JSON and five verified package quick starts, provenance and versioning notes, public usage-stat links, and reproducibility guidance.
+
 ## 2026-08-13
 
 - **added:** `data/eu-vat-rates-history.json` — standard rate history for the EU-27 back to 1967, with the effective date of every change. Built from section VIII of the archived TAXUD booklet up to the end of 2016, and TEDB from 2017-01-01. See the README section "Standard rate history".

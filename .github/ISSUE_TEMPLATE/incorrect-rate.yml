@@ -1,0 +1,57 @@
+name: Incorrect VAT rate
+description: Report a published VAT rate that may be incorrect
+title: "[Rate]: "
+labels: [data]
+body:
+  - type: input
+    id: country
+    attributes:
+      label: Country or jurisdiction
+      placeholder: Finland (FI)
+    validations:
+      required: true
+  - type: dropdown
+    id: rate_type
+    attributes:
+      label: Rate type
+      options: [standard, reduced, super_reduced, parking]
+    validations:
+      required: true
+  - type: input
+    id: current
+    attributes:
+      label: Currently published value
+    validations:
+      required: true
+  - type: input
+    id: correct
+    attributes:
+      label: Claimed correct value
+    validations:
+      required: true
+  - type: input
+    id: effective
+    attributes:
+      label: Effective date
+      placeholder: YYYY-MM-DD
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: Official source URL
+      description: Link to the tax authority, government publication, legislation, or European Commission source.
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Scope and context
+      description: Note any product, service, category, territory, or date limitations.
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Confirmation
+      options:
+        - label: I understand that an aggregator or news article alone may not be sufficient evidence.
+          required: true

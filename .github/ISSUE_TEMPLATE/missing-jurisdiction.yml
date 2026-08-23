@@ -1,0 +1,37 @@
+name: Missing jurisdiction or rate
+description: Propose coverage for a missing jurisdiction or rate type
+title: "[Coverage]: "
+labels: [data, enhancement]
+body:
+  - type: input
+    id: country
+    attributes:
+      label: Country or jurisdiction and code
+    validations:
+      required: true
+  - type: input
+    id: rate_type
+    attributes:
+      label: Missing rate type and value
+    validations:
+      required: true
+  - type: input
+    id: effective
+    attributes:
+      label: Effective date
+      placeholder: YYYY-MM-DD
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: Official source URL
+    validations:
+      required: true
+  - type: textarea
+    id: rationale
+    attributes:
+      label: Coverage rationale and details
+      description: Include currency, local VAT name, abbreviation, and VAT-number format when proposing a jurisdiction.
+    validations:
+      required: true

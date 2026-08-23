@@ -1,0 +1,28 @@
+name: Data source issue
+description: Report an unavailable, ambiguous, or conflicting official source
+title: "[Source]: "
+labels: [data]
+body:
+  - type: input
+    id: country
+    attributes:
+      label: Country or jurisdiction
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: Source URL
+    validations:
+      required: true
+  - type: textarea
+    id: issue
+    attributes:
+      label: Problem with the source
+      description: Explain whether it is unavailable, ambiguous, conflicts with another official source, or gives an unexpected effective date.
+    validations:
+      required: true
+  - type: input
+    id: alternative
+    attributes:
+      label: Alternative official source URL

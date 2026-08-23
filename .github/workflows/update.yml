@@ -27,6 +27,9 @@ jobs:
 
       - run: pip install requests
 
+      - name: Preserve previous snapshot for release notes
+        run: cp data/eu-vat-rates-data.json /tmp/eu-vat-rates-data.previous.json
+
       - name: Fetch latest VAT rates
         id: fetch
         run: |
@@ -44,6 +47,20 @@ jobs:
             python3 scripts/update_history.py
           fi
 
+      - name: Validate generated datasets
+        run: |
+          python3 scripts/validate_data.py
+          python3 -m unittest discover tests
+
+      - name: Prepare meaningful release notes
+        id: release
+        if: steps.fetch.outputs.rates_changed == 'true' && github.event.inputs.dry_run != 'true'
+        run: |
+          python3 scripts/release_notes.py \
+            /tmp/eu-vat-rates-data.previous.json \
+            data/eu-vat-rates-data.json \
+            /tmp/release-notes.md
+
       - name: Commit and push
         if: github.event.inputs.dry_run != 'true'
         run: |
@@ -56,3 +73,13 @@ jobs:
           git add data/history-tedb.json data/eu-vat-rates-history.json
           git diff --staged --quiet || git commit -m "chore: update VAT rates ${DATE}"
           git push
+
+      - name: Create release for actual rate changes
+        if: steps.fetch.outputs.rates_changed == 'true' && github.event.inputs.dry_run != 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release create "${{ steps.release.outputs.tag }}" \
+            --target main \
+            --title "${{ steps.release.outputs.title }}" \
+            --notes-file /tmp/release-notes.md
