@@ -202,8 +202,8 @@
       ],
       "super_reduced": 4.0,
       "parking": null,
-      "format": "ES + letter/digit + 7 digits + letter/digit",
-      "pattern": "^ES[A-Z0-9]\\d{7}[A-Z0-9]$"
+      "format": "ES + letter + 7 digits + letter/digit, or ES + 8 digits + letter",
+      "pattern": "^ES([A-Z]\\d{7}[A-Z0-9]|\\d{8}[A-Z])$"
     },
     "FI": {
       "country": "Finland",
