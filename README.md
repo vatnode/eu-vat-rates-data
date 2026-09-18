@@ -8,7 +8,7 @@
 [![npm downloads](https://img.shields.io/npm/dw/eu-vat-rates-data)](https://www.npmjs.com/package/eu-vat-rates-data)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
-EU rates come from the European Commission Taxes in Europe Database (TEDB). The source is checked daily; normalized, validated data is published automatically. See the [methodology](https://vatnode.dev/data), [rate history](data/eu-vat-rates-history.json), and [VAT Rates website](https://vatnode.dev/vat-rates).
+EU rates come from the European Commission Taxes in Europe Database (TEDB). The source is checked daily; normalized, validated data is published automatically. See the [methodology](https://vatnode.dev/data?ref=rates-readme-canonical), [rate history](data/eu-vat-rates-history.json), and [VAT Rates website](https://vatnode.dev/vat-rates).
 
 ## Quick start
 
@@ -176,7 +176,7 @@ The history dataset covers standard rates only. Reduced, super-reduced, and park
 
 No dataset can decide which VAT treatment applies to a transaction. Product or service category, customer status, location, place-of-supply rules, exemptions, and effective dates may change the result. The format helpers check only the shape of a VAT number; they do not confirm registration through VIES. This dataset is for software integration and is not tax or legal advice.
 
-Full methodology and limitations: [vatnode.dev/data](https://vatnode.dev/data).
+Full methodology and limitations: [vatnode.dev/data](https://vatnode.dev/data?ref=rates-readme-canonical).
 
 ## Coverage
 
