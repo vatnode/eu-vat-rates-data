@@ -13,9 +13,11 @@ Dependencies:
 """
 
 import json
+import os
 import sys
 import datetime
 import xml.etree.ElementTree as ET
+from collections import defaultdict
 from pathlib import Path
 from typing import Optional
 
@@ -236,6 +238,49 @@ TEDB_SOAP_ACTION = "urn:ec.europa.eu:taxud:tedb:services:v1:VatRetrievalService/
 # rateValueTypeEnum values to skip — these are not real positive VAT rates
 SKIP_RATE_TYPES = {"EXEMPTED", "OUT_OF_SCOPE", "NOT_APPLICABLE"}
 
+# (type, rate.type) pairs this parser knows how to place in the dataset. Anything
+# else is dropped — correctly, because the schema has nowhere to put it, but the
+# drop must be audible. A rate class TEDB starts publishing that we have never
+# seen (a zero rate on books, say) would otherwise disappear without a trace and
+# the dataset would look complete while missing it.
+KNOWN_RATE_TYPES = {
+    ("STANDARD", "DEFAULT"),
+    ("REDUCED", "REDUCED_RATE"),
+    ("REDUCED", "SUPER_REDUCED_RATE"),
+    ("REDUCED", "PARKING_RATE"),
+}
+
+
+def _report_unplaced_rate_types(unplaced: dict) -> None:
+    """Announce every (type, rate.type) pair TEDB returned that we dropped."""
+    print(
+        f"  {len(unplaced)} unrecognised TEDB rate type(s) were dropped:",
+        file=sys.stderr,
+    )
+    for (outer_type, rv_type), countries in sorted(unplaced.items()):
+        where = ", ".join(sorted(set(countries)))
+        line = f"{outer_type}/{rv_type} ({len(countries)}x: {where})"
+        print(f"    - {line}", file=sys.stderr)
+        # Surface it in the Actions run summary too — a daily cron's stderr is
+        # not read by anyone unless the job fails, and this one does not fail.
+        if os.environ.get("GITHUB_ACTIONS") == "true":
+            print(f"::warning title=Unrecognised TEDB rate type::{line}")
+
+
+def _report_skipped_categories(skipped: dict) -> None:
+    """List the categories dropped via SKIP_RATE_TYPES, per member state.
+
+    These drops are expected — an exemption is not a positive rate and the
+    schema has no slot for one. They are printed anyway because this is the
+    only place a reader can see WHICH categories a country reports as
+    zero-valued, and a rate the schema cannot express (Denmark's 0% on books,
+    pending publication since 2026-07-01) will appear here first.
+    """
+    print("  Zero-valued / out-of-scope categories skipped (expected):")
+    for country in sorted(skipped):
+        entries = sorted(set(skipped[country]))
+        print(f"    {country}: {', '.join(entries)}")
+
 
 # ---------------------------------------------------------------------------
 # SOAP helpers
@@ -272,6 +317,10 @@ def _parse_soap_response(xml_bytes: bytes) -> Optional[dict[str, dict]]:
     # Accumulate unique (rate_value_type, rate_value) per country
     # Structure: country_code → { "standard": float, "reduced": set, "super_reduced": set, "parking": set }
     raw: dict[str, dict] = {}
+    # (type, rate.type) → member states that carried it, for the report below.
+    unplaced: dict[tuple, list] = defaultdict(list)
+    # member state → "RATE_TYPE/CATEGORY" strings dropped via SKIP_RATE_TYPES.
+    skipped: dict[str, list] = defaultdict(list)
 
     for el in root.iter():
         local_tag = el.tag.split("}")[-1] if "}" in el.tag else el.tag
@@ -282,6 +331,7 @@ def _parse_soap_response(xml_bytes: bytes) -> Optional[dict[str, dict]]:
         outer_type:   Optional[str] = None  # STANDARD | REDUCED
         rv_type:      Optional[str] = None  # DEFAULT | REDUCED_RATE | SUPER_REDUCED_RATE | PARKING_RATE | …
         rv_value:     Optional[float] = None
+        category:     Optional[str] = None  # TEDB category identifier, e.g. CULTURAL_EVENTS
 
         for child in el:
             ctag = child.tag.split("}")[-1] if "}" in child.tag else child.tag
@@ -300,10 +350,16 @@ def _parse_soap_response(xml_bytes: bytes) -> Optional[dict[str, dict]]:
                             rv_value = float((gc.text or "").strip())
                         except ValueError:
                             pass
+            elif ctag == "category":
+                for gc in child:
+                    gctag = gc.tag.split("}")[-1] if "}" in gc.tag else gc.tag
+                    if gctag == "identifier":
+                        category = (gc.text or "").strip()
 
         if not country_code or not outer_type or rv_type is None:
             continue
         if rv_type in SKIP_RATE_TYPES:
+            skipped[country_code].append(f"{rv_type}/{category or 'UNCATEGORISED'}")
             continue
         if rv_value is None or rv_value < 0:
             continue
@@ -315,15 +371,22 @@ def _parse_soap_response(xml_bytes: bytes) -> Optional[dict[str, dict]]:
             "parking":      set(),
         })
 
-        if outer_type == "STANDARD" and rv_type == "DEFAULT":
+        if (outer_type, rv_type) not in KNOWN_RATE_TYPES:
+            unplaced[(outer_type, rv_type)].append(country_code)
+        elif outer_type == "STANDARD":
             entry["standard"].add(rv_value)
-        elif outer_type == "REDUCED":
-            if rv_type == "REDUCED_RATE":
-                entry["reduced"].add(rv_value)
-            elif rv_type == "SUPER_REDUCED_RATE":
-                entry["super_reduced"].add(rv_value)
-            elif rv_type == "PARKING_RATE":
-                entry["parking"].add(rv_value)
+        elif rv_type == "REDUCED_RATE":
+            entry["reduced"].add(rv_value)
+        elif rv_type == "SUPER_REDUCED_RATE":
+            entry["super_reduced"].add(rv_value)
+        else:
+            entry["parking"].add(rv_value)
+
+    if skipped:
+        _report_skipped_categories(skipped)
+
+    if unplaced:
+        _report_unplaced_rate_types(unplaced)
 
     if not raw:
         return None
