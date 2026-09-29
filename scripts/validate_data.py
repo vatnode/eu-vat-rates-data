@@ -51,16 +51,11 @@ def validate_identifiers(value: object, prefix: str, errors: list[str]) -> None:
         if not isinstance(names, dict) or "en" not in names:
             errors.append(f"{path}: expected null or an object keyed by language, including en")
             continue
-        for lang, entry in names.items():
+        for lang, name in names.items():
             if not re.fullmatch(r"[a-z]{2}", lang):
                 errors.append(f"{path}.{lang}: expected an ISO 639-1 language key")
-            if not isinstance(entry, dict) or set(entry) != {"name", "abbr"}:
-                errors.append(f"{path}.{lang}: expected {{name, abbr}}")
-                continue
-            if not isinstance(entry["name"], str) or not entry["name"]:
-                errors.append(f"{path}.{lang}.name: expected non-empty string")
-            if entry["abbr"] is not None and (not isinstance(entry["abbr"], str) or not entry["abbr"]):
-                errors.append(f"{path}.{lang}.abbr: expected null or non-empty string")
+            if not isinstance(name, str) or not name:
+                errors.append(f"{path}.{lang}: expected non-empty string")
 
 
 def validate_current(data: dict) -> list[str]:

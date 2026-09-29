@@ -62,15 +62,7 @@
       "type": ["object", "null"],
       "required": ["en"],
       "patternProperties": {
-        "^[a-z]{2}$": {
-          "type": "object",
-          "additionalProperties": false,
-          "required": ["name", "abbr"],
-          "properties": {
-            "name": { "type": "string", "minLength": 1 },
-            "abbr": { "type": ["string", "null"], "minLength": 1 }
-          }
-        }
+        "^[a-z]{2}$": { "type": "string", "minLength": 1 }
       },
       "additionalProperties": false
     }

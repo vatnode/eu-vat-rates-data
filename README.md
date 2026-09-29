@@ -160,10 +160,10 @@ interface VatRate {
 }
 
 // keyed by ISO 639-1 language: every official language, plus "en"
-type LocalizedName = Record<string, { name: string; abbr: string | null }>
+type LocalizedName = Record<string, string>
 ```
 
-`identifiers` holds names, never numbers, in every official language plus English, each with its own abbreviation. For Switzerland `registry_code_name` reads Unternehmens-Identifikationsnummer (UID), numéro d'identification des entreprises (IDE), numero d'identificazione delle imprese (IDI) and Unique Enterprise Identification Number (UID). Where two concepts share one number (Danish CVR, Finnish Y-tunnus) the name repeats. Each name was checked against the registrar's or tax authority's own pages or legal text; `null` means no official name could be confirmed. The names are hand-curated in [`scripts/identifiers.json`](scripts/identifiers.json), not taken from TEDB.
+`identifiers` holds names, never numbers, in every official language plus English. For Switzerland `registry_code_name` reads Unternehmens-Identifikationsnummer, numéro d'identification des entreprises, numero d'identificazione delle imprese and Unique Enterprise Identification Number. Where two concepts share one number (Danish CVR, Finnish Y-tunnus) the name repeats. Each name was checked against the registrar's or tax authority's own pages or legal text; `null` means no official name could be confirmed. The names are hand-curated in [`scripts/identifiers.json`](scripts/identifiers.json), not taken from TEDB.
 
 Top-level `version` is an ISO date, `source` names the primary source, and `rates` is keyed by country code. Codes use ISO 3166-1 alpha-2 where available; Greece is stored as `GR` although VAT IDs use the EU prefix `EL`. `XI` identifies Northern Ireland for VAT purposes and `XK` is the user-assigned code used for Kosovo.
 
