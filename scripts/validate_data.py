@@ -20,8 +20,9 @@ EU_CODES = {
 }
 REQUIRED_RATE_FIELDS = {
     "country", "currency", "eu_member", "vat_name", "vat_abbr", "standard",
-    "reduced", "super_reduced", "parking", "format", "pattern",
+    "reduced", "super_reduced", "parking", "format", "pattern", "identifiers",
 }
+IDENTIFIER_FIELDS = {"registry_authority_name", "registry_name", "registry_code_name", "tax_id_name", "vat_id_name"}
 
 
 def load_json(path: Path) -> dict:
@@ -37,6 +38,29 @@ def iso_date(value: object, path: str, errors: list[str]) -> None:
         dt.date.fromisoformat(str(value))
     except ValueError:
         errors.append(f"{path}: expected ISO date, got {value!r}")
+
+
+def validate_identifiers(value: object, prefix: str, errors: list[str]) -> None:
+    if not isinstance(value, dict) or set(value) != IDENTIFIER_FIELDS:
+        errors.append(f"{prefix}: expected exactly {sorted(IDENTIFIER_FIELDS)}")
+        return
+    for field, names in value.items():
+        path = f"{prefix}.{field}"
+        if names is None:
+            continue
+        if not isinstance(names, dict) or "en" not in names:
+            errors.append(f"{path}: expected null or an object keyed by language, including en")
+            continue
+        for lang, entry in names.items():
+            if not re.fullmatch(r"[a-z]{2}", lang):
+                errors.append(f"{path}.{lang}: expected an ISO 639-1 language key")
+            if not isinstance(entry, dict) or set(entry) != {"name", "abbr"}:
+                errors.append(f"{path}.{lang}: expected {{name, abbr}}")
+                continue
+            if not isinstance(entry["name"], str) or not entry["name"]:
+                errors.append(f"{path}.{lang}.name: expected non-empty string")
+            if entry["abbr"] is not None and (not isinstance(entry["abbr"], str) or not entry["abbr"]):
+                errors.append(f"{path}.{lang}.abbr: expected null or non-empty string")
 
 
 def validate_current(data: dict) -> list[str]:
@@ -75,6 +99,7 @@ def validate_current(data: dict) -> list[str]:
             errors.append(f"{prefix}.reduced: expected sorted unique list")
         elif any(isinstance(value, bool) or not isinstance(value, (int, float)) or not 0 <= value <= 100 for value in reduced):
             errors.append(f"{prefix}.reduced: rate outside 0 to 100")
+        validate_identifiers(rate["identifiers"], f"{prefix}.identifiers", errors)
         try:
             re.compile(rate["pattern"])
         except (re.error, TypeError) as exc:

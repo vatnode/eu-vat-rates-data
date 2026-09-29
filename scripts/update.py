@@ -229,6 +229,12 @@ NON_EU_COUNTRIES: dict[str, dict] = {
 
 DATA_FILE = Path(__file__).parent.parent / "data" / "eu-vat-rates-data.json"
 
+# Local names of the company register, its registrar, and the register, tax and
+# VAT identifiers, per jurisdiction. Hand-curated from official sources (not from
+# TEDB), so they live in a separate file and are merged into every entry.
+IDENTIFIERS_FILE = Path(__file__).parent / "identifiers.json"
+IDENTIFIERS: dict[str, dict] = json.loads(IDENTIFIERS_FILE.read_text(encoding="utf-8"))
+
 # EC TEDB SOAP service (HTTP per WSDL, redirects to HTTPS)
 TEDB_ENDPOINT = "https://ec.europa.eu/taxation_customs/tedb/ws/"
 TEDB_NS_MSG   = "urn:ec.europa.eu:taxud:tedb:services:v1:IVatRetrievalService"
@@ -460,6 +466,7 @@ def build_dataset(eu_rates: dict[str, dict]) -> dict:
             "parking":      entry.get("parking"),
             "format":       VAT_FORMATS.get(code, ""),
             "pattern":      VAT_PATTERNS.get(code),
+            "identifiers":  IDENTIFIERS[code],
         }
 
     # Non-EU European countries: hardcoded, updated manually
@@ -476,6 +483,7 @@ def build_dataset(eu_rates: dict[str, dict]) -> dict:
             "parking":      entry["parking"],
             "format":       VAT_FORMATS.get(code, ""),
             "pattern":      VAT_PATTERNS.get(code),
+            "identifiers":  IDENTIFIERS[code],
         }
 
     return {

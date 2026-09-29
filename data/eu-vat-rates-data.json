@@ -20,7 +20,50 @@
       "super_reduced": null,
       "parking": null,
       "format": "1 letter + 6 digits + 1 letter",
-      "pattern": "^[A-Z]\\d{6}[A-Z]$"
+      "pattern": "^[A-Z]\\d{6}[A-Z]$",
+      "identifiers": {
+        "registry_authority_name": {
+          "ca": {
+            "name": "Departament de Registres Jurídics i Econòmics",
+            "abbr": null
+          },
+          "en": {
+            "name": "Department of Legal and Economic Registers",
+            "abbr": null
+          }
+        },
+        "registry_name": {
+          "ca": {
+            "name": "Registre de Societats Mercantils",
+            "abbr": null
+          },
+          "en": {
+            "name": "Register of Commercial Companies",
+            "abbr": null
+          }
+        },
+        "registry_code_name": null,
+        "tax_id_name": {
+          "ca": {
+            "name": "número de registre tributari",
+            "abbr": "NRT"
+          },
+          "en": {
+            "name": "tax registration number",
+            "abbr": null
+          }
+        },
+        "vat_id_name": {
+          "ca": {
+            "name": "número de registre tributari",
+            "abbr": "NRT"
+          },
+          "en": {
+            "name": "tax registration number",
+            "abbr": null
+          }
+        }
+      }
     },
     "AL": {
       "country": "Albania",
@@ -36,7 +79,50 @@
       "super_reduced": null,
       "parking": null,
       "format": "1 letter + 8 digits + 1 letter",
-      "pattern": "^[A-Z]\\d{8}[A-Z]$"
+      "pattern": "^[A-Z]\\d{8}[A-Z]$",
+      "identifiers": {
+        "registry_authority_name": {
+          "sq": {
+            "name": "Qendra Kombëtare e Biznesit",
+            "abbr": "QKB"
+          },
+          "en": {
+            "name": "National Business Center",
+            "abbr": null
+          }
+        },
+        "registry_name": {
+          "sq": {
+            "name": "Regjistri Tregtar",
+            "abbr": null
+          },
+          "en": {
+            "name": "Commercial Register",
+            "abbr": null
+          }
+        },
+        "registry_code_name": {
+          "sq": {
+            "name": "NIPT",
+            "abbr": "NIPT"
+          },
+          "en": {
+            "name": "taxpayer identification number",
+            "abbr": null
+          }
+        },
+        "tax_id_name": {
+          "sq": {
+            "name": "NIPT",
+            "abbr": "NIPT"
+          },
+          "en": {
+            "name": "taxpayer identification number",
+            "abbr": null
+          }
+        },
+        "vat_id_name": null
+      }
     },
     "AT": {
       "country": "Austria",
@@ -53,7 +139,59 @@
       "super_reduced": 4.9,
       "parking": null,
       "format": "ATU + 8 digits",
-      "pattern": "^ATU\\d{8}$"
+      "pattern": "^ATU\\d{8}$",
+      "identifiers": {
+        "registry_authority_name": {
+          "de": {
+            "name": "Landesgericht",
+            "abbr": null
+          },
+          "en": {
+            "name": "regional court",
+            "abbr": null
+          }
+        },
+        "registry_name": {
+          "de": {
+            "name": "Firmenbuch",
+            "abbr": null
+          },
+          "en": {
+            "name": "company register",
+            "abbr": null
+          }
+        },
+        "registry_code_name": {
+          "de": {
+            "name": "Firmenbuchnummer",
+            "abbr": "FN"
+          },
+          "en": {
+            "name": "company register number",
+            "abbr": null
+          }
+        },
+        "tax_id_name": {
+          "de": {
+            "name": "Steuernummer",
+            "abbr": null
+          },
+          "en": {
+            "name": "tax number",
+            "abbr": null
+          }
+        },
+        "vat_id_name": {
+          "de": {
+            "name": "Umsatzsteuer-Identifikationsnummer",
+            "abbr": "UID"
+          },
+          "en": {
+            "name": "VAT identification number",
+            "abbr": null
+          }
+        }
+      }
     },
     "BA": {
       "country": "Bosnia and Herzegovina",
@@ -66,7 +204,59 @@
       "super_reduced": null,
       "parking": null,
       "format": "12 digits",
-      "pattern": "^\\d{12}$"
+      "pattern": "^\\d{12}$",
+      "identifiers": {
+        "registry_authority_name": {
+          "hr": {
+            "name": "registarski sud",
+            "abbr": null
+          },
+          "en": {
+            "name": "registration court",
+            "abbr": null
+          }
+        },
+        "registry_name": {
+          "hr": {
+            "name": "sudski registar poslovnih subjekata",
+            "abbr": null
+          },
+          "en": {
+            "name": "court register of business entities",
+            "abbr": null
+          }
+        },
+        "registry_code_name": {
+          "hr": {
+            "name": "matični broj subjekta upisa",
+            "abbr": "MBS"
+          },
+          "en": {
+            "name": "registration number of the registered entity",
+            "abbr": null
+          }
+        },
+        "tax_id_name": {
+          "bs": {
+            "name": "jedinstveni identifikacioni broj",
+            "abbr": "JIB"
+          },
+          "en": {
+            "name": "unique identification number",
+            "abbr": null
+          }
+        },
+        "vat_id_name": {
+          "bs": {
+            "name": "identifikacioni broj obveznika indirektnih poreza",
+            "abbr": null
+          },
+          "en": {
+            "name": "indirect taxpayer identification number",
+            "abbr": null
+          }
+        }
+      }
     },
     "BE": {
       "country": "Belgium",
@@ -82,7 +272,99 @@
       "super_reduced": null,
       "parking": 12.0,
       "format": "BE + 0/1 + 9 digits",
-      "pattern": "^BE[01]\\d{9}$"
+      "pattern": "^BE[01]\\d{9}$",
+      "identifiers": {
+        "registry_authority_name": {
+          "nl": {
+            "name": "FOD Economie",
+            "abbr": null
+          },
+          "fr": {
+            "name": "SPF Economie",
+            "abbr": null
+          },
+          "de": {
+            "name": "FÖD Wirtschaft",
+            "abbr": null
+          },
+          "en": {
+            "name": "FPS Economy",
+            "abbr": null
+          }
+        },
+        "registry_name": {
+          "nl": {
+            "name": "Kruispuntbank van Ondernemingen",
+            "abbr": "KBO"
+          },
+          "fr": {
+            "name": "Banque-Carrefour des Entreprises",
+            "abbr": "BCE"
+          },
+          "de": {
+            "name": "Zentrale Datenbank der Unternehmen",
+            "abbr": "ZDU"
+          },
+          "en": {
+            "name": "Crossroads Bank for Enterprises",
+            "abbr": "CBE"
+          }
+        },
+        "registry_code_name": {
+          "nl": {
+            "name": "ondernemingsnummer",
+            "abbr": null
+          },
+          "fr": {
+            "name": "numéro d'entreprise",
+            "abbr": null
+          },
+          "de": {
+            "name": "Unternehmensnummer",
+            "abbr": null
+          },
+          "en": {
+            "name": "enterprise number",
+            "abbr": null
+          }
+        },
+        "tax_id_name": {
+          "nl": {
+            "name": "ondernemingsnummer",
+            "abbr": null
+          },
+          "fr": {
+            "name": "numéro d'entreprise",
+            "abbr": null
+          },
+          "de": {
+            "name": "Unternehmensnummer",
+            "abbr": null
+          },
+          "en": {
+            "name": "enterprise number",
+            "abbr": null
+          }
+        },
+        "vat_id_name": {
+          "nl": {
+            "name": "btw-nummer",
+            "abbr": null
+          },
+          "fr": {
+            "name": "numéro de TVA",
+            "abbr": null
+          },
+          "de": {
+            "name": "MwSt.-Nummer",
+            "abbr": null
+          },
+          "en": {
+            "name": "VAT number",
+            "abbr": null
+          }
+        }
+      }
     },
     "BG": {
       "country": "Bulgaria",
@@ -97,7 +379,50 @@
       "super_reduced": null,
       "parking": null,
       "format": "BG + 9–10 digits",
-      "pattern": "^BG\\d{9,10}$"
+      "pattern": "^BG\\d{9,10}$",
+      "identifiers": {
+        "registry_authority_name": {
+          "bg": {
+            "name": "Агенция по вписванията",
+            "abbr": null
+          },
+          "en": {
+            "name": "Registry Agency",
+            "abbr": null
+          }
+        },
+        "registry_name": {
+          "bg": {
+            "name": "Търговски регистър и регистър на юридическите лица с нестопанска цел",
+            "abbr": null
+          },
+          "en": {
+            "name": "Commercial Register and Register of Non-Profit Legal Entities",
+            "abbr": null
+          }
+        },
+        "registry_code_name": {
+          "bg": {
+            "name": "единен идентификационен код",
+            "abbr": "ЕИК"
+          },
+          "en": {
+            "name": "unified identification code",
+            "abbr": null
+          }
+        },
+        "tax_id_name": null,
+        "vat_id_name": {
+          "bg": {
+            "name": "идентификационен номер за целите на ДДС",
+            "abbr": null
+          },
+          "en": {
+            "name": "VAT identification number",
+            "abbr": null
+          }
+        }
+      }
     },
     "CH": {
       "country": "Switzerland",
@@ -113,7 +438,91 @@
       "super_reduced": null,
       "parking": null,
       "format": "CHE-NNN.NNN.NNN (+ MWST/TVA/IVA)",
-      "pattern": "^CHE-?\\d{3}\\.?\\d{3}\\.?\\d{3}[ ]?(MWST|TVA|IVA)?$"
+      "pattern": "^CHE-?\\d{3}\\.?\\d{3}\\.?\\d{3}[ ]?(MWST|TVA|IVA)?$",
+      "identifiers": {
+        "registry_authority_name": {
+          "de": {
+            "name": "Eidgenössisches Amt für das Handelsregister",
+            "abbr": "EHRA"
+          },
+          "fr": {
+            "name": "Office fédéral du registre du commerce",
+            "abbr": "OFRC"
+          },
+          "en": {
+            "name": "Federal Commercial Registry Office",
+            "abbr": "FCRO"
+          }
+        },
+        "registry_name": {
+          "de": {
+            "name": "Handelsregister",
+            "abbr": null
+          },
+          "fr": {
+            "name": "registre du commerce",
+            "abbr": null
+          },
+          "it": {
+            "name": "registro di commercio",
+            "abbr": null
+          },
+          "en": {
+            "name": "commercial register",
+            "abbr": null
+          }
+        },
+        "registry_code_name": {
+          "de": {
+            "name": "Unternehmens-Identifikationsnummer",
+            "abbr": "UID"
+          },
+          "fr": {
+            "name": "numéro d'identification des entreprises",
+            "abbr": "IDE"
+          },
+          "it": {
+            "name": "numero d'identificazione delle imprese",
+            "abbr": "IDI"
+          },
+          "en": {
+            "name": "Unique Enterprise Identification Number",
+            "abbr": "UID"
+          }
+        },
+        "tax_id_name": {
+          "de": {
+            "name": "Unternehmens-Identifikationsnummer",
+            "abbr": "UID"
+          },
+          "fr": {
+            "name": "numéro d'identification des entreprises",
+            "abbr": "IDE"
+          },
+          "it": {
+            "name": "numero d'identificazione delle imprese",
+            "abbr": "IDI"
+          },
+          "en": {
+            "name": "Unique Enterprise Identification Number",
+            "abbr": "UID"
+          }
+        },
+        "vat_id_name": {
+          "de": {
+            "name": "MWST-Nummer",
+            "abbr": null
+          },
+          "fr": {
+            "name": "numéro TVA",
+            "abbr": null
+          },
+          "en": {
+            "name": "VAT number",
+            "abbr": null
+          }
+        }
+      }
     },
     "CY": {
       "country": "Cyprus",
@@ -129,7 +538,50 @@
       "super_reduced": 3.0,
       "parking": null,
       "format": "CY + 8 digits + 1 letter",
-      "pattern": "^CY\\d{8}[A-Z]$"
+      "pattern": "^CY\\d{8}[A-Z]$",
+      "identifiers": {
+        "registry_authority_name": {
+          "el": {
+            "name": "Τμήμα Εφόρου Εταιρειών και Διανοητικής Ιδιοκτησίας",
+            "abbr": null
+          },
+          "en": {
+            "name": "Department of Registrar of Companies and Intellectual Property",
+            "abbr": null
+          }
+        },
+        "registry_name": {
+          "el": {
+            "name": "Μητρώο Επιχειρηματικών Οντοτήτων",
+            "abbr": null
+          },
+          "en": {
+            "name": "Business Register",
+            "abbr": null
+          }
+        },
+        "registry_code_name": {
+          "el": {
+            "name": "αριθμός εγγραφής",
+            "abbr": null
+          },
+          "en": {
+            "name": "registration number",
+            "abbr": null
+          }
+        },
+        "tax_id_name": {
+          "el": {
+            "name": "Αριθμός Φορολογικής Ταυτότητας",
+            "abbr": "ΑΦΤ"
+          },
+          "en": {
+            "name": "Tax Identification Number",
+            "abbr": null
+          }
+        },
+        "vat_id_name": null
+      }
     },
     "CZ": {
       "country": "Czech Republic",
@@ -144,7 +596,59 @@
       "super_reduced": null,
       "parking": null,
       "format": "CZ + 8–10 digits",
-      "pattern": "^CZ\\d{8,10}$"
+      "pattern": "^CZ\\d{8,10}$",
+      "identifiers": {
+        "registry_authority_name": {
+          "cs": {
+            "name": "rejstříkový soud",
+            "abbr": null
+          },
+          "en": {
+            "name": "registry court",
+            "abbr": null
+          }
+        },
+        "registry_name": {
+          "cs": {
+            "name": "obchodní rejstřík",
+            "abbr": null
+          },
+          "en": {
+            "name": "Commercial Register",
+            "abbr": null
+          }
+        },
+        "registry_code_name": {
+          "cs": {
+            "name": "identifikační číslo",
+            "abbr": null
+          },
+          "en": {
+            "name": "identification number",
+            "abbr": null
+          }
+        },
+        "tax_id_name": {
+          "cs": {
+            "name": "daňové identifikační číslo",
+            "abbr": "DIČ"
+          },
+          "en": {
+            "name": "tax identification number",
+            "abbr": null
+          }
+        },
+        "vat_id_name": {
+          "cs": {
+            "name": "daňové identifikační číslo",
+            "abbr": "DIČ"
+          },
+          "en": {
+            "name": "tax identification number",
+            "abbr": null
+          }
+        }
+      }
     },
     "DE": {
       "country": "Germany",
@@ -159,7 +663,59 @@
       "super_reduced": null,
       "parking": null,
       "format": "DE + 9 digits",
-      "pattern": "^DE\\d{9}$"
+      "pattern": "^DE\\d{9}$",
+      "identifiers": {
+        "registry_authority_name": {
+          "de": {
+            "name": "Amtsgericht",
+            "abbr": null
+          },
+          "en": {
+            "name": "local court",
+            "abbr": null
+          }
+        },
+        "registry_name": {
+          "de": {
+            "name": "Handelsregister",
+            "abbr": null
+          },
+          "en": {
+            "name": "commercial register",
+            "abbr": null
+          }
+        },
+        "registry_code_name": {
+          "de": {
+            "name": "Registernummer",
+            "abbr": null
+          },
+          "en": {
+            "name": "register number",
+            "abbr": null
+          }
+        },
+        "tax_id_name": {
+          "de": {
+            "name": "Wirtschafts-Identifikationsnummer",
+            "abbr": "W-IdNr."
+          },
+          "en": {
+            "name": "Business Identification Number",
+            "abbr": null
+          }
+        },
+        "vat_id_name": {
+          "de": {
+            "name": "Umsatzsteuer-Identifikationsnummer",
+            "abbr": "USt-IdNr."
+          },
+          "en": {
+            "name": "VAT identification number",
+            "abbr": null
+          }
+        }
+      }
     },
     "DK": {
       "country": "Denmark",
@@ -172,7 +728,59 @@
       "super_reduced": null,
       "parking": null,
       "format": "DK + 8 digits",
-      "pattern": "^DK\\d{8}$"
+      "pattern": "^DK\\d{8}$",
+      "identifiers": {
+        "registry_authority_name": {
+          "da": {
+            "name": "Erhvervsstyrelsen",
+            "abbr": null
+          },
+          "en": {
+            "name": "Danish Business Authority",
+            "abbr": null
+          }
+        },
+        "registry_name": {
+          "da": {
+            "name": "Det Centrale Virksomhedsregister",
+            "abbr": "CVR"
+          },
+          "en": {
+            "name": "Central Business Register",
+            "abbr": null
+          }
+        },
+        "registry_code_name": {
+          "da": {
+            "name": "CVR-nummer",
+            "abbr": null
+          },
+          "en": {
+            "name": "CVR number",
+            "abbr": null
+          }
+        },
+        "tax_id_name": {
+          "da": {
+            "name": "CVR-nummer",
+            "abbr": null
+          },
+          "en": {
+            "name": "CVR number",
+            "abbr": null
+          }
+        },
+        "vat_id_name": {
+          "da": {
+            "name": "momsnummer",
+            "abbr": null
+          },
+          "en": {
+            "name": "VAT number",
+            "abbr": null
+          }
+        }
+      }
     },
     "EE": {
       "country": "Estonia",
@@ -188,7 +796,59 @@
       "super_reduced": null,
       "parking": null,
       "format": "EE + 9 digits",
-      "pattern": "^EE\\d{9}$"
+      "pattern": "^EE\\d{9}$",
+      "identifiers": {
+        "registry_authority_name": {
+          "et": {
+            "name": "Tartu Maakohtu registriosakond",
+            "abbr": null
+          },
+          "en": {
+            "name": "Registration Department of Tartu County Court",
+            "abbr": null
+          }
+        },
+        "registry_name": {
+          "et": {
+            "name": "äriregister",
+            "abbr": null
+          },
+          "en": {
+            "name": "Commercial Register",
+            "abbr": null
+          }
+        },
+        "registry_code_name": {
+          "et": {
+            "name": "registrikood",
+            "abbr": null
+          },
+          "en": {
+            "name": "registry code",
+            "abbr": null
+          }
+        },
+        "tax_id_name": {
+          "et": {
+            "name": "registrikood",
+            "abbr": null
+          },
+          "en": {
+            "name": "registry code",
+            "abbr": null
+          }
+        },
+        "vat_id_name": {
+          "et": {
+            "name": "käibemaksukohustuslase registreerimisnumber",
+            "abbr": "KMKR"
+          },
+          "en": {
+            "name": "VAT registration number",
+            "abbr": null
+          }
+        }
+      }
     },
     "ES": {
       "country": "Spain",
@@ -203,7 +863,41 @@
       "super_reduced": 4.0,
       "parking": null,
       "format": "ES + letter + 7 digits + letter/digit, or ES + 8 digits + letter",
-      "pattern": "^ES([A-Z]\\d{7}[A-Z0-9]|\\d{8}[A-Z])$"
+      "pattern": "^ES([A-Z]\\d{7}[A-Z0-9]|\\d{8}[A-Z])$",
+      "identifiers": {
+        "registry_authority_name": {
+          "es": {
+            "name": "Registro Mercantil Central",
+            "abbr": "RMC"
+          },
+          "en": {
+            "name": "Central Commercial Registry",
+            "abbr": null
+          }
+        },
+        "registry_name": {
+          "es": {
+            "name": "Registro Mercantil",
+            "abbr": null
+          },
+          "en": {
+            "name": "Commercial Registry",
+            "abbr": null
+          }
+        },
+        "registry_code_name": null,
+        "tax_id_name": {
+          "es": {
+            "name": "Número de Identificación Fiscal",
+            "abbr": "NIF"
+          },
+          "en": {
+            "name": "tax identification number",
+            "abbr": null
+          }
+        },
+        "vat_id_name": null
+      }
     },
     "FI": {
       "country": "Finland",
@@ -219,7 +913,79 @@
       "super_reduced": null,
       "parking": null,
       "format": "FI + 8 digits",
-      "pattern": "^FI\\d{8}$"
+      "pattern": "^FI\\d{8}$",
+      "identifiers": {
+        "registry_authority_name": {
+          "fi": {
+            "name": "Patentti- ja rekisterihallitus",
+            "abbr": "PRH"
+          },
+          "sv": {
+            "name": "Patent- och registerstyrelsen",
+            "abbr": "PRS"
+          },
+          "en": {
+            "name": "Finnish Patent and Registration Office",
+            "abbr": "PRH"
+          }
+        },
+        "registry_name": {
+          "fi": {
+            "name": "kaupparekisteri",
+            "abbr": null
+          },
+          "sv": {
+            "name": "handelsregistret",
+            "abbr": null
+          },
+          "en": {
+            "name": "Trade Register",
+            "abbr": null
+          }
+        },
+        "registry_code_name": {
+          "fi": {
+            "name": "Y-tunnus",
+            "abbr": null
+          },
+          "sv": {
+            "name": "FO-nummer",
+            "abbr": null
+          },
+          "en": {
+            "name": "Business ID",
+            "abbr": null
+          }
+        },
+        "tax_id_name": {
+          "fi": {
+            "name": "Y-tunnus",
+            "abbr": null
+          },
+          "sv": {
+            "name": "FO-nummer",
+            "abbr": null
+          },
+          "en": {
+            "name": "Business ID",
+            "abbr": null
+          }
+        },
+        "vat_id_name": {
+          "fi": {
+            "name": "arvonlisäverotunniste",
+            "abbr": null
+          },
+          "sv": {
+            "name": "momsnummer",
+            "abbr": null
+          },
+          "en": {
+            "name": "VAT number",
+            "abbr": null
+          }
+        }
+      }
     },
     "FR": {
       "country": "France",
@@ -239,7 +1005,59 @@
       "super_reduced": 2.1,
       "parking": null,
       "format": "FR + 2 alphanumeric + 9 digits",
-      "pattern": "^FR[A-HJ-NP-Z0-9]{2}\\d{9}$"
+      "pattern": "^FR[A-HJ-NP-Z0-9]{2}\\d{9}$",
+      "identifiers": {
+        "registry_authority_name": {
+          "fr": {
+            "name": "Institut national de la propriété industrielle",
+            "abbr": "INPI"
+          },
+          "en": {
+            "name": "National Institute of Industrial Property",
+            "abbr": null
+          }
+        },
+        "registry_name": {
+          "fr": {
+            "name": "Registre national des entreprises",
+            "abbr": "RNE"
+          },
+          "en": {
+            "name": "National Business Register",
+            "abbr": null
+          }
+        },
+        "registry_code_name": {
+          "fr": {
+            "name": "numéro SIREN",
+            "abbr": "SIREN"
+          },
+          "en": {
+            "name": "SIREN number",
+            "abbr": null
+          }
+        },
+        "tax_id_name": {
+          "fr": {
+            "name": "numéro SIREN",
+            "abbr": "SIREN"
+          },
+          "en": {
+            "name": "SIREN number",
+            "abbr": null
+          }
+        },
+        "vat_id_name": {
+          "fr": {
+            "name": "numéro de TVA intracommunautaire",
+            "abbr": null
+          },
+          "en": {
+            "name": "intra-Community VAT number",
+            "abbr": null
+          }
+        }
+      }
     },
     "GB": {
       "country": "United Kingdom",
@@ -254,7 +1072,39 @@
       "super_reduced": null,
       "parking": null,
       "format": "GB + 9 digits, 12 digits, or GD/HA + 3 digits",
-      "pattern": "^GB(\\d{9}|\\d{12}|GD\\d{3}|HA\\d{3})$"
+      "pattern": "^GB(\\d{9}|\\d{12}|GD\\d{3}|HA\\d{3})$",
+      "identifiers": {
+        "registry_authority_name": {
+          "en": {
+            "name": "Companies House",
+            "abbr": null
+          }
+        },
+        "registry_name": {
+          "en": {
+            "name": "Companies House register",
+            "abbr": null
+          }
+        },
+        "registry_code_name": {
+          "en": {
+            "name": "company number",
+            "abbr": null
+          }
+        },
+        "tax_id_name": {
+          "en": {
+            "name": "Unique Taxpayer Reference",
+            "abbr": "UTR"
+          }
+        },
+        "vat_id_name": {
+          "en": {
+            "name": "VAT registration number",
+            "abbr": null
+          }
+        }
+      }
     },
     "GE": {
       "country": "Georgia",
@@ -267,7 +1117,50 @@
       "super_reduced": null,
       "parking": null,
       "format": "9 digits",
-      "pattern": "^\\d{9}$"
+      "pattern": "^\\d{9}$",
+      "identifiers": {
+        "registry_authority_name": {
+          "ka": {
+            "name": "საჯარო რეესტრის ეროვნული სააგენტო",
+            "abbr": null
+          },
+          "en": {
+            "name": "National Agency of Public Registry",
+            "abbr": null
+          }
+        },
+        "registry_name": {
+          "ka": {
+            "name": "სამეწარმეო რეესტრი",
+            "abbr": null
+          },
+          "en": {
+            "name": "Entrepreneurial Register",
+            "abbr": null
+          }
+        },
+        "registry_code_name": null,
+        "tax_id_name": {
+          "ka": {
+            "name": "საიდენტიფიკაციო ნომერი",
+            "abbr": null
+          },
+          "en": {
+            "name": "identification number",
+            "abbr": null
+          }
+        },
+        "vat_id_name": {
+          "ka": {
+            "name": "საიდენტიფიკაციო ნომერი",
+            "abbr": null
+          },
+          "en": {
+            "name": "identification number",
+            "abbr": null
+          }
+        }
+      }
     },
     "GR": {
       "country": "Greece",
@@ -284,7 +1177,50 @@
       "super_reduced": 4.0,
       "parking": 13.0,
       "format": "EL + 9 digits",
-      "pattern": "^EL\\d{9}$"
+      "pattern": "^EL\\d{9}$",
+      "identifiers": {
+        "registry_authority_name": {
+          "el": {
+            "name": "Κεντρική Ένωση Επιμελητηρίων Ελλάδος",
+            "abbr": "ΚΕΕΕ"
+          },
+          "en": {
+            "name": "Union of Hellenic Chambers of Commerce",
+            "abbr": null
+          }
+        },
+        "registry_name": {
+          "el": {
+            "name": "Γενικό Εμπορικό Μητρώο",
+            "abbr": "Γ.Ε.ΜΗ."
+          },
+          "en": {
+            "name": "General Commercial Registry",
+            "abbr": "G.E.MI."
+          }
+        },
+        "registry_code_name": {
+          "el": {
+            "name": "Αριθμός Γ.Ε.ΜΗ.",
+            "abbr": null
+          },
+          "en": {
+            "name": "G.E.MI. number",
+            "abbr": null
+          }
+        },
+        "tax_id_name": {
+          "el": {
+            "name": "ΑΦΜ",
+            "abbr": "ΑΦΜ"
+          },
+          "en": {
+            "name": "tax identification number",
+            "abbr": null
+          }
+        },
+        "vat_id_name": null
+      }
     },
     "HR": {
       "country": "Croatia",
@@ -300,7 +1236,50 @@
       "super_reduced": null,
       "parking": null,
       "format": "HR + 11 digits",
-      "pattern": "^HR\\d{11}$"
+      "pattern": "^HR\\d{11}$",
+      "identifiers": {
+        "registry_authority_name": {
+          "hr": {
+            "name": "trgovački sud",
+            "abbr": null
+          },
+          "en": {
+            "name": "commercial court",
+            "abbr": null
+          }
+        },
+        "registry_name": {
+          "hr": {
+            "name": "sudski registar",
+            "abbr": null
+          },
+          "en": {
+            "name": "court register",
+            "abbr": null
+          }
+        },
+        "registry_code_name": {
+          "hr": {
+            "name": "MBS",
+            "abbr": "MBS"
+          },
+          "en": {
+            "name": "registration number of the entity",
+            "abbr": null
+          }
+        },
+        "tax_id_name": {
+          "hr": {
+            "name": "osobni identifikacijski broj",
+            "abbr": "OIB"
+          },
+          "en": {
+            "name": "personal identification number",
+            "abbr": null
+          }
+        },
+        "vat_id_name": null
+      }
     },
     "HU": {
       "country": "Hungary",
@@ -316,7 +1295,59 @@
       "super_reduced": null,
       "parking": null,
       "format": "HU + 8 digits",
-      "pattern": "^HU\\d{8}$"
+      "pattern": "^HU\\d{8}$",
+      "identifiers": {
+        "registry_authority_name": {
+          "hu": {
+            "name": "cégbíróság",
+            "abbr": null
+          },
+          "en": {
+            "name": "company court",
+            "abbr": null
+          }
+        },
+        "registry_name": {
+          "hu": {
+            "name": "cégjegyzék",
+            "abbr": null
+          },
+          "en": {
+            "name": "company register",
+            "abbr": null
+          }
+        },
+        "registry_code_name": {
+          "hu": {
+            "name": "cégjegyzékszám",
+            "abbr": null
+          },
+          "en": {
+            "name": "company registration number",
+            "abbr": null
+          }
+        },
+        "tax_id_name": {
+          "hu": {
+            "name": "adószám",
+            "abbr": null
+          },
+          "en": {
+            "name": "tax number",
+            "abbr": null
+          }
+        },
+        "vat_id_name": {
+          "hu": {
+            "name": "közösségi adószám",
+            "abbr": null
+          },
+          "en": {
+            "name": "EU VAT number",
+            "abbr": null
+          }
+        }
+      }
     },
     "IE": {
       "country": "Ireland",
@@ -332,7 +1363,39 @@
       "super_reduced": null,
       "parking": null,
       "format": "IE + 7 digits + 1–2 letters, or IE + 1 digit + letter/+/* + 5 digits + 1 letter",
-      "pattern": "^IE\\d{7}[A-W][AH]?$|^IE\\d[A-Z+*]\\d{5}[A-W]$"
+      "pattern": "^IE\\d{7}[A-W][AH]?$|^IE\\d[A-Z+*]\\d{5}[A-W]$",
+      "identifiers": {
+        "registry_authority_name": {
+          "en": {
+            "name": "Companies Registration Office",
+            "abbr": "CRO"
+          }
+        },
+        "registry_name": {
+          "en": {
+            "name": "CRO register",
+            "abbr": null
+          }
+        },
+        "registry_code_name": {
+          "en": {
+            "name": "registered number",
+            "abbr": null
+          }
+        },
+        "tax_id_name": {
+          "en": {
+            "name": "Tax Reference Number",
+            "abbr": "TRN"
+          }
+        },
+        "vat_id_name": {
+          "en": {
+            "name": "VAT number",
+            "abbr": null
+          }
+        }
+      }
     },
     "IS": {
       "country": "Iceland",
@@ -347,7 +1410,59 @@
       "super_reduced": null,
       "parking": null,
       "format": "5–6 digits",
-      "pattern": "^\\d{5,6}$"
+      "pattern": "^\\d{5,6}$",
+      "identifiers": {
+        "registry_authority_name": {
+          "is": {
+            "name": "Skatturinn",
+            "abbr": null
+          },
+          "en": {
+            "name": "Iceland Revenue and Customs",
+            "abbr": null
+          }
+        },
+        "registry_name": {
+          "is": {
+            "name": "fyrirtækjaskrá",
+            "abbr": null
+          },
+          "en": {
+            "name": "Register of Enterprises",
+            "abbr": null
+          }
+        },
+        "registry_code_name": {
+          "is": {
+            "name": "kennitala",
+            "abbr": null
+          },
+          "en": {
+            "name": "identification number",
+            "abbr": null
+          }
+        },
+        "tax_id_name": {
+          "is": {
+            "name": "kennitala",
+            "abbr": null
+          },
+          "en": {
+            "name": "identification number",
+            "abbr": null
+          }
+        },
+        "vat_id_name": {
+          "is": {
+            "name": "VSK-númer",
+            "abbr": null
+          },
+          "en": {
+            "name": "VAT number",
+            "abbr": null
+          }
+        }
+      }
     },
     "IT": {
       "country": "Italy",
@@ -363,7 +1478,59 @@
       "super_reduced": 4.0,
       "parking": null,
       "format": "IT + 11 digits",
-      "pattern": "^IT\\d{11}$"
+      "pattern": "^IT\\d{11}$",
+      "identifiers": {
+        "registry_authority_name": {
+          "it": {
+            "name": "Camera di Commercio",
+            "abbr": null
+          },
+          "en": {
+            "name": "Chamber of Commerce",
+            "abbr": null
+          }
+        },
+        "registry_name": {
+          "it": {
+            "name": "Registro Imprese",
+            "abbr": null
+          },
+          "en": {
+            "name": "Business Register",
+            "abbr": null
+          }
+        },
+        "registry_code_name": {
+          "it": {
+            "name": "Numero Registro Imprese",
+            "abbr": null
+          },
+          "en": {
+            "name": "Business Register number",
+            "abbr": null
+          }
+        },
+        "tax_id_name": {
+          "it": {
+            "name": "codice fiscale",
+            "abbr": null
+          },
+          "en": {
+            "name": "tax code",
+            "abbr": null
+          }
+        },
+        "vat_id_name": {
+          "it": {
+            "name": "partita IVA",
+            "abbr": null
+          },
+          "en": {
+            "name": "VAT number",
+            "abbr": null
+          }
+        }
+      }
     },
     "LI": {
       "country": "Liechtenstein",
@@ -379,7 +1546,41 @@
       "super_reduced": null,
       "parking": null,
       "format": "5 digits",
-      "pattern": "^\\d{5}$"
+      "pattern": "^\\d{5}$",
+      "identifiers": {
+        "registry_authority_name": {
+          "de": {
+            "name": "Amt für Justiz",
+            "abbr": null
+          },
+          "en": {
+            "name": "Office of Justice",
+            "abbr": null
+          }
+        },
+        "registry_name": {
+          "de": {
+            "name": "Handelsregister",
+            "abbr": null
+          },
+          "en": {
+            "name": "Commercial Register",
+            "abbr": null
+          }
+        },
+        "registry_code_name": {
+          "de": {
+            "name": "Firmennummer",
+            "abbr": null
+          },
+          "en": {
+            "name": "company number",
+            "abbr": null
+          }
+        },
+        "tax_id_name": null,
+        "vat_id_name": null
+      }
     },
     "LT": {
       "country": "Lithuania",
@@ -395,7 +1596,59 @@
       "super_reduced": null,
       "parking": null,
       "format": "LT + 9 or 12 digits",
-      "pattern": "^LT(\\d{9}|\\d{12})$"
+      "pattern": "^LT(\\d{9}|\\d{12})$",
+      "identifiers": {
+        "registry_authority_name": {
+          "lt": {
+            "name": "VĮ Registrų centras",
+            "abbr": null
+          },
+          "en": {
+            "name": "State Enterprise Centre of Registers",
+            "abbr": null
+          }
+        },
+        "registry_name": {
+          "lt": {
+            "name": "Juridinių asmenų registras",
+            "abbr": null
+          },
+          "en": {
+            "name": "Register of Legal Entities",
+            "abbr": null
+          }
+        },
+        "registry_code_name": {
+          "lt": {
+            "name": "juridinio asmens kodas",
+            "abbr": null
+          },
+          "en": {
+            "name": "legal entity code",
+            "abbr": null
+          }
+        },
+        "tax_id_name": {
+          "lt": {
+            "name": "mokesčių mokėtojo identifikacinis numeris",
+            "abbr": null
+          },
+          "en": {
+            "name": "taxpayer identification number",
+            "abbr": null
+          }
+        },
+        "vat_id_name": {
+          "lt": {
+            "name": "PVM mokėtojo kodas",
+            "abbr": null
+          },
+          "en": {
+            "name": "VAT payer code",
+            "abbr": null
+          }
+        }
+      }
     },
     "LU": {
       "country": "Luxembourg",
@@ -411,7 +1664,71 @@
       "super_reduced": 3.0,
       "parking": 14.0,
       "format": "LU + 8 digits",
-      "pattern": "^LU\\d{8}$"
+      "pattern": "^LU\\d{8}$",
+      "identifiers": {
+        "registry_authority_name": {
+          "fr": {
+            "name": "Luxembourg Business Registers",
+            "abbr": "LBR"
+          },
+          "en": {
+            "name": "Luxembourg Business Registers",
+            "abbr": null
+          }
+        },
+        "registry_name": {
+          "fr": {
+            "name": "registre de commerce et des sociétés",
+            "abbr": "RCS"
+          },
+          "de": {
+            "name": "Handels- und Firmenregister",
+            "abbr": "RCS"
+          },
+          "en": {
+            "name": "Trade and Company Register",
+            "abbr": "RCS"
+          }
+        },
+        "registry_code_name": {
+          "fr": {
+            "name": "numéro d'immatriculation au registre de commerce et des sociétés",
+            "abbr": null
+          },
+          "en": {
+            "name": "RCS number",
+            "abbr": null
+          }
+        },
+        "tax_id_name": {
+          "fr": {
+            "name": "numéro d'identification nationale",
+            "abbr": null
+          },
+          "de": {
+            "name": "nationale Identifikationsnummer",
+            "abbr": null
+          },
+          "en": {
+            "name": "national identification number",
+            "abbr": null
+          }
+        },
+        "vat_id_name": {
+          "fr": {
+            "name": "numéro d'identification à la TVA",
+            "abbr": null
+          },
+          "de": {
+            "name": "Mehrwertsteuer-Identifikationsnummer",
+            "abbr": null
+          },
+          "en": {
+            "name": "VAT identification number",
+            "abbr": null
+          }
+        }
+      }
     },
     "LV": {
       "country": "Latvia",
@@ -427,7 +1744,59 @@
       "super_reduced": null,
       "parking": null,
       "format": "LV + 11 digits",
-      "pattern": "^LV\\d{11}$"
+      "pattern": "^LV\\d{11}$",
+      "identifiers": {
+        "registry_authority_name": {
+          "lv": {
+            "name": "Latvijas Republikas Uzņēmumu reģistrs",
+            "abbr": null
+          },
+          "en": {
+            "name": "Register of Enterprises of the Republic of Latvia",
+            "abbr": null
+          }
+        },
+        "registry_name": {
+          "lv": {
+            "name": "komercreģistrs",
+            "abbr": null
+          },
+          "en": {
+            "name": "Commercial Register",
+            "abbr": null
+          }
+        },
+        "registry_code_name": {
+          "lv": {
+            "name": "reģistrācijas numurs",
+            "abbr": null
+          },
+          "en": {
+            "name": "registration number",
+            "abbr": null
+          }
+        },
+        "tax_id_name": {
+          "lv": {
+            "name": "nodokļu maksātāja reģistrācijas kods",
+            "abbr": null
+          },
+          "en": {
+            "name": "taxpayer registration code",
+            "abbr": null
+          }
+        },
+        "vat_id_name": {
+          "lv": {
+            "name": "PVN maksātāja numurs",
+            "abbr": null
+          },
+          "en": {
+            "name": "VAT payer number",
+            "abbr": null
+          }
+        }
+      }
     },
     "MC": {
       "country": "Monaco",
@@ -443,7 +1812,32 @@
       "super_reduced": 2.1,
       "parking": null,
       "format": "FR + 2 alphanumeric + 9 digits",
-      "pattern": "^FR[A-HJ-NP-Z0-9]{2}\\d{9}$"
+      "pattern": "^FR[A-HJ-NP-Z0-9]{2}\\d{9}$",
+      "identifiers": {
+        "registry_authority_name": {
+          "fr": {
+            "name": "Direction du Développement Économique",
+            "abbr": null
+          },
+          "en": {
+            "name": "Business Development Agency",
+            "abbr": null
+          }
+        },
+        "registry_name": {
+          "fr": {
+            "name": "Répertoire du Commerce et de l'Industrie",
+            "abbr": "RCI"
+          },
+          "en": {
+            "name": "Trade and Industry Directory",
+            "abbr": null
+          }
+        },
+        "registry_code_name": null,
+        "tax_id_name": null,
+        "vat_id_name": null
+      }
     },
     "MD": {
       "country": "Moldova",
@@ -458,7 +1852,50 @@
       "super_reduced": null,
       "parking": null,
       "format": "7 digits",
-      "pattern": "^\\d{7}$"
+      "pattern": "^\\d{7}$",
+      "identifiers": {
+        "registry_authority_name": {
+          "ro": {
+            "name": "Agenția Servicii Publice",
+            "abbr": "ASP"
+          },
+          "en": {
+            "name": "Public Services Agency",
+            "abbr": null
+          }
+        },
+        "registry_name": {
+          "ro": {
+            "name": "Registrul de stat al persoanelor juridice",
+            "abbr": null
+          },
+          "en": {
+            "name": "State Register of Legal Entities",
+            "abbr": null
+          }
+        },
+        "registry_code_name": {
+          "ro": {
+            "name": "numărul de identificare de stat",
+            "abbr": "IDNO"
+          },
+          "en": {
+            "name": "state identification number",
+            "abbr": null
+          }
+        },
+        "tax_id_name": {
+          "ro": {
+            "name": "cod fiscal",
+            "abbr": null
+          },
+          "en": {
+            "name": "fiscal code",
+            "abbr": null
+          }
+        },
+        "vat_id_name": null
+      }
     },
     "ME": {
       "country": "Montenegro",
@@ -474,7 +1911,50 @@
       "super_reduced": null,
       "parking": null,
       "format": "8 digits",
-      "pattern": "^\\d{8}$"
+      "pattern": "^\\d{8}$",
+      "identifiers": {
+        "registry_authority_name": {
+          "sr": {
+            "name": "Poreska uprava Crne Gore",
+            "abbr": null
+          },
+          "en": {
+            "name": "Tax Administration of Montenegro",
+            "abbr": null
+          }
+        },
+        "registry_name": {
+          "sr": {
+            "name": "Centralni registar privrednih subjekata",
+            "abbr": "CRPS"
+          },
+          "en": {
+            "name": "Central Register of Business Entities",
+            "abbr": null
+          }
+        },
+        "registry_code_name": {
+          "sr": {
+            "name": "registracioni broj",
+            "abbr": null
+          },
+          "en": {
+            "name": "registration number",
+            "abbr": null
+          }
+        },
+        "tax_id_name": {
+          "sr": {
+            "name": "PIB",
+            "abbr": "PIB"
+          },
+          "en": {
+            "name": "tax identification number",
+            "abbr": null
+          }
+        },
+        "vat_id_name": null
+      }
     },
     "MK": {
       "country": "North Macedonia",
@@ -490,7 +1970,50 @@
       "super_reduced": null,
       "parking": null,
       "format": "MK + 13 digits",
-      "pattern": "^MK\\d{13}$"
+      "pattern": "^MK\\d{13}$",
+      "identifiers": {
+        "registry_authority_name": {
+          "mk": {
+            "name": "Централен регистар на Република Северна Македонија",
+            "abbr": null
+          },
+          "en": {
+            "name": "Central Registry of the Republic of North Macedonia",
+            "abbr": null
+          }
+        },
+        "registry_name": {
+          "mk": {
+            "name": "Трговски регистар",
+            "abbr": null
+          },
+          "en": {
+            "name": "Trade Register",
+            "abbr": null
+          }
+        },
+        "registry_code_name": {
+          "mk": {
+            "name": "единствен матичен број на субјектот",
+            "abbr": "ЕМБС"
+          },
+          "en": {
+            "name": "unique registration number of the entity",
+            "abbr": null
+          }
+        },
+        "tax_id_name": {
+          "mk": {
+            "name": "единствен даночен број",
+            "abbr": "ЕДБ"
+          },
+          "en": {
+            "name": "unique tax number",
+            "abbr": null
+          }
+        },
+        "vat_id_name": null
+      }
     },
     "MT": {
       "country": "Malta",
@@ -506,7 +2029,34 @@
       "super_reduced": null,
       "parking": 12.0,
       "format": "MT + 8 digits",
-      "pattern": "^MT\\d{8}$"
+      "pattern": "^MT\\d{8}$",
+      "identifiers": {
+        "registry_authority_name": {
+          "en": {
+            "name": "Malta Business Registry",
+            "abbr": "MBR"
+          }
+        },
+        "registry_name": null,
+        "registry_code_name": {
+          "en": {
+            "name": "registration number",
+            "abbr": null
+          }
+        },
+        "tax_id_name": {
+          "en": {
+            "name": "income tax number",
+            "abbr": null
+          }
+        },
+        "vat_id_name": {
+          "en": {
+            "name": "VAT number",
+            "abbr": null
+          }
+        }
+      }
     },
     "NL": {
       "country": "Netherlands",
@@ -521,7 +2071,59 @@
       "super_reduced": null,
       "parking": null,
       "format": "NL + 9 digits + B + 2 digits",
-      "pattern": "^NL\\d{9}B\\d{2}$"
+      "pattern": "^NL\\d{9}B\\d{2}$",
+      "identifiers": {
+        "registry_authority_name": {
+          "nl": {
+            "name": "Kamer van Koophandel",
+            "abbr": "KVK"
+          },
+          "en": {
+            "name": "Netherlands Chamber of Commerce",
+            "abbr": null
+          }
+        },
+        "registry_name": {
+          "nl": {
+            "name": "Handelsregister",
+            "abbr": null
+          },
+          "en": {
+            "name": "Business Register",
+            "abbr": null
+          }
+        },
+        "registry_code_name": {
+          "nl": {
+            "name": "KVK-nummer",
+            "abbr": null
+          },
+          "en": {
+            "name": "KVK number",
+            "abbr": null
+          }
+        },
+        "tax_id_name": {
+          "nl": {
+            "name": "Rechtspersonen en Samenwerkingsverbanden Informatienummer",
+            "abbr": "RSIN"
+          },
+          "en": {
+            "name": "Legal Entities and Partnerships Information Number",
+            "abbr": null
+          }
+        },
+        "vat_id_name": {
+          "nl": {
+            "name": "btw-identificatienummer",
+            "abbr": "btw-id"
+          },
+          "en": {
+            "name": "VAT identification number",
+            "abbr": null
+          }
+        }
+      }
     },
     "NO": {
       "country": "Norway",
@@ -537,7 +2139,59 @@
       "super_reduced": null,
       "parking": null,
       "format": "9 digits + MVA",
-      "pattern": "^\\d{9}MVA$"
+      "pattern": "^\\d{9}MVA$",
+      "identifiers": {
+        "registry_authority_name": {
+          "nb": {
+            "name": "Brønnøysundregistrene",
+            "abbr": null
+          },
+          "en": {
+            "name": "Brønnøysund Register Centre",
+            "abbr": null
+          }
+        },
+        "registry_name": {
+          "nb": {
+            "name": "Enhetsregisteret",
+            "abbr": "CCR"
+          },
+          "en": {
+            "name": "Central Coordinating Register for Legal Entities",
+            "abbr": null
+          }
+        },
+        "registry_code_name": {
+          "nb": {
+            "name": "organisasjonsnummer",
+            "abbr": null
+          },
+          "en": {
+            "name": "organisation number",
+            "abbr": null
+          }
+        },
+        "tax_id_name": {
+          "nb": {
+            "name": "organisasjonsnummer",
+            "abbr": null
+          },
+          "en": {
+            "name": "organisation number",
+            "abbr": null
+          }
+        },
+        "vat_id_name": {
+          "nb": {
+            "name": "organisasjonsnummer",
+            "abbr": null
+          },
+          "en": {
+            "name": "organisation number",
+            "abbr": null
+          }
+        }
+      }
     },
     "PL": {
       "country": "Poland",
@@ -553,7 +2207,59 @@
       "super_reduced": 8.0,
       "parking": null,
       "format": "PL + 10 digits",
-      "pattern": "^PL\\d{10}$"
+      "pattern": "^PL\\d{10}$",
+      "identifiers": {
+        "registry_authority_name": {
+          "pl": {
+            "name": "sąd rejestrowy",
+            "abbr": null
+          },
+          "en": {
+            "name": "registry court",
+            "abbr": null
+          }
+        },
+        "registry_name": {
+          "pl": {
+            "name": "Krajowy Rejestr Sądowy",
+            "abbr": "KRS"
+          },
+          "en": {
+            "name": "National Court Register",
+            "abbr": null
+          }
+        },
+        "registry_code_name": {
+          "pl": {
+            "name": "numer KRS",
+            "abbr": null
+          },
+          "en": {
+            "name": "KRS number",
+            "abbr": null
+          }
+        },
+        "tax_id_name": {
+          "pl": {
+            "name": "NIP",
+            "abbr": "NIP"
+          },
+          "en": {
+            "name": "tax identification number",
+            "abbr": null
+          }
+        },
+        "vat_id_name": {
+          "pl": {
+            "name": "numer VAT UE",
+            "abbr": null
+          },
+          "en": {
+            "name": "EU VAT number",
+            "abbr": null
+          }
+        }
+      }
     },
     "PT": {
       "country": "Portugal",
@@ -571,7 +2277,59 @@
       "super_reduced": 6.0,
       "parking": 13.0,
       "format": "PT + 9 digits",
-      "pattern": "^PT\\d{9}$"
+      "pattern": "^PT\\d{9}$",
+      "identifiers": {
+        "registry_authority_name": {
+          "pt": {
+            "name": "Registo Nacional de Pessoas Coletivas",
+            "abbr": "RNPC"
+          },
+          "en": {
+            "name": "National Registry of Legal Persons",
+            "abbr": null
+          }
+        },
+        "registry_name": {
+          "pt": {
+            "name": "ficheiro central de pessoas coletivas",
+            "abbr": "FCPC"
+          },
+          "en": {
+            "name": "Central File of Legal Persons",
+            "abbr": null
+          }
+        },
+        "registry_code_name": {
+          "pt": {
+            "name": "número de identificação de pessoa coletiva",
+            "abbr": "NIPC"
+          },
+          "en": {
+            "name": "legal person identification number",
+            "abbr": null
+          }
+        },
+        "tax_id_name": {
+          "pt": {
+            "name": "número de identificação fiscal",
+            "abbr": "NIF"
+          },
+          "en": {
+            "name": "tax identification number",
+            "abbr": null
+          }
+        },
+        "vat_id_name": {
+          "pt": {
+            "name": "número de identificação fiscal",
+            "abbr": "NIF"
+          },
+          "en": {
+            "name": "tax identification number",
+            "abbr": null
+          }
+        }
+      }
     },
     "RO": {
       "country": "Romania",
@@ -586,7 +2344,59 @@
       "super_reduced": null,
       "parking": null,
       "format": "RO + 2–10 digits",
-      "pattern": "^RO\\d{2,10}$"
+      "pattern": "^RO\\d{2,10}$",
+      "identifiers": {
+        "registry_authority_name": {
+          "ro": {
+            "name": "Oficiul Național al Registrului Comerțului",
+            "abbr": "ONRC"
+          },
+          "en": {
+            "name": "National Trade Register Office",
+            "abbr": null
+          }
+        },
+        "registry_name": {
+          "ro": {
+            "name": "registrul comerțului",
+            "abbr": null
+          },
+          "en": {
+            "name": "Trade Register",
+            "abbr": null
+          }
+        },
+        "registry_code_name": {
+          "ro": {
+            "name": "număr de ordine în registrul comerțului",
+            "abbr": null
+          },
+          "en": {
+            "name": "trade register number",
+            "abbr": null
+          }
+        },
+        "tax_id_name": {
+          "ro": {
+            "name": "cod unic de înregistrare",
+            "abbr": "CUI"
+          },
+          "en": {
+            "name": "unique registration code",
+            "abbr": null
+          }
+        },
+        "vat_id_name": {
+          "ro": {
+            "name": "cod de înregistrare în scopuri de TVA",
+            "abbr": null
+          },
+          "en": {
+            "name": "VAT registration code",
+            "abbr": null
+          }
+        }
+      }
     },
     "RS": {
       "country": "Serbia",
@@ -601,7 +2411,59 @@
       "super_reduced": null,
       "parking": null,
       "format": "9 digits",
-      "pattern": "^\\d{9}$"
+      "pattern": "^\\d{9}$",
+      "identifiers": {
+        "registry_authority_name": {
+          "sr": {
+            "name": "Агенција за привредне регистре",
+            "abbr": "АПР"
+          },
+          "en": {
+            "name": "Serbian Business Registers Agency",
+            "abbr": null
+          }
+        },
+        "registry_name": {
+          "sr": {
+            "name": "Регистар привредних субјеката",
+            "abbr": null
+          },
+          "en": {
+            "name": "Business Entities Register",
+            "abbr": null
+          }
+        },
+        "registry_code_name": {
+          "sr": {
+            "name": "матични број",
+            "abbr": null
+          },
+          "en": {
+            "name": "registration number",
+            "abbr": null
+          }
+        },
+        "tax_id_name": {
+          "sr": {
+            "name": "ПИБ",
+            "abbr": "ПИБ"
+          },
+          "en": {
+            "name": "tax identification number",
+            "abbr": null
+          }
+        },
+        "vat_id_name": {
+          "sr": {
+            "name": "ПИБ",
+            "abbr": "ПИБ"
+          },
+          "en": {
+            "name": "tax identification number",
+            "abbr": null
+          }
+        }
+      }
     },
     "SE": {
       "country": "Sweden",
@@ -617,7 +2479,59 @@
       "super_reduced": null,
       "parking": null,
       "format": "SE + 10 digits + 01",
-      "pattern": "^SE\\d{10}01$"
+      "pattern": "^SE\\d{10}01$",
+      "identifiers": {
+        "registry_authority_name": {
+          "sv": {
+            "name": "Bolagsverket",
+            "abbr": null
+          },
+          "en": {
+            "name": "Swedish Companies Registration Office",
+            "abbr": null
+          }
+        },
+        "registry_name": {
+          "sv": {
+            "name": "aktiebolagsregistret",
+            "abbr": null
+          },
+          "en": {
+            "name": "Register of Limited Companies",
+            "abbr": null
+          }
+        },
+        "registry_code_name": {
+          "sv": {
+            "name": "organisationsnummer",
+            "abbr": null
+          },
+          "en": {
+            "name": "organisation number",
+            "abbr": null
+          }
+        },
+        "tax_id_name": {
+          "sv": {
+            "name": "organisationsnummer",
+            "abbr": null
+          },
+          "en": {
+            "name": "organisation number",
+            "abbr": null
+          }
+        },
+        "vat_id_name": {
+          "sv": {
+            "name": "momsregistreringsnummer",
+            "abbr": null
+          },
+          "en": {
+            "name": "VAT registration number",
+            "abbr": null
+          }
+        }
+      }
     },
     "SI": {
       "country": "Slovenia",
@@ -633,7 +2547,59 @@
       "super_reduced": null,
       "parking": null,
       "format": "SI + 8 digits",
-      "pattern": "^SI\\d{8}$"
+      "pattern": "^SI\\d{8}$",
+      "identifiers": {
+        "registry_authority_name": {
+          "sl": {
+            "name": "Agencija Republike Slovenije za javnopravne evidence in storitve",
+            "abbr": "AJPES"
+          },
+          "en": {
+            "name": "Agency of the Republic of Slovenia for Public Legal Records and Related Services",
+            "abbr": null
+          }
+        },
+        "registry_name": {
+          "sl": {
+            "name": "Poslovni register Slovenije",
+            "abbr": "PRS"
+          },
+          "en": {
+            "name": "Slovenian Business Register",
+            "abbr": null
+          }
+        },
+        "registry_code_name": {
+          "sl": {
+            "name": "matična številka",
+            "abbr": null
+          },
+          "en": {
+            "name": "registration number",
+            "abbr": null
+          }
+        },
+        "tax_id_name": {
+          "sl": {
+            "name": "davčna številka",
+            "abbr": null
+          },
+          "en": {
+            "name": "tax number",
+            "abbr": null
+          }
+        },
+        "vat_id_name": {
+          "sl": {
+            "name": "identifikacijska številka za DDV",
+            "abbr": null
+          },
+          "en": {
+            "name": "VAT identification number",
+            "abbr": null
+          }
+        }
+      }
     },
     "SK": {
       "country": "Slovakia",
@@ -649,7 +2615,59 @@
       "super_reduced": null,
       "parking": null,
       "format": "SK + 10 digits",
-      "pattern": "^SK\\d{10}$"
+      "pattern": "^SK\\d{10}$",
+      "identifiers": {
+        "registry_authority_name": {
+          "sk": {
+            "name": "registrový súd",
+            "abbr": null
+          },
+          "en": {
+            "name": "registry court",
+            "abbr": null
+          }
+        },
+        "registry_name": {
+          "sk": {
+            "name": "Obchodný register",
+            "abbr": null
+          },
+          "en": {
+            "name": "Commercial Register",
+            "abbr": null
+          }
+        },
+        "registry_code_name": {
+          "sk": {
+            "name": "identifikačné číslo",
+            "abbr": null
+          },
+          "en": {
+            "name": "identification number",
+            "abbr": null
+          }
+        },
+        "tax_id_name": {
+          "sk": {
+            "name": "DIČ",
+            "abbr": "DIČ"
+          },
+          "en": {
+            "name": "tax identification number",
+            "abbr": null
+          }
+        },
+        "vat_id_name": {
+          "sk": {
+            "name": "identifikačné číslo pre daň",
+            "abbr": "IČ DPH"
+          },
+          "en": {
+            "name": "VAT identification number",
+            "abbr": null
+          }
+        }
+      }
     },
     "TR": {
       "country": "Turkey",
@@ -665,7 +2683,50 @@
       "super_reduced": null,
       "parking": null,
       "format": "10 digits",
-      "pattern": "^\\d{10}$"
+      "pattern": "^\\d{10}$",
+      "identifiers": {
+        "registry_authority_name": {
+          "tr": {
+            "name": "Ticaret Bakanlığı",
+            "abbr": null
+          },
+          "en": {
+            "name": "Ministry of Trade",
+            "abbr": null
+          }
+        },
+        "registry_name": {
+          "tr": {
+            "name": "Ticaret Sicili",
+            "abbr": null
+          },
+          "en": {
+            "name": "Trade Registry",
+            "abbr": null
+          }
+        },
+        "registry_code_name": {
+          "tr": {
+            "name": "MERSİS numarası",
+            "abbr": null
+          },
+          "en": {
+            "name": "MERSİS number",
+            "abbr": null
+          }
+        },
+        "tax_id_name": {
+          "tr": {
+            "name": "Vergi Kimlik Numarası",
+            "abbr": "VKN"
+          },
+          "en": {
+            "name": "tax identification number",
+            "abbr": null
+          }
+        },
+        "vat_id_name": null
+      }
     },
     "UA": {
       "country": "Ukraine",
@@ -681,7 +2742,59 @@
       "super_reduced": null,
       "parking": null,
       "format": "9 digits",
-      "pattern": "^\\d{9}$"
+      "pattern": "^\\d{9}$",
+      "identifiers": {
+        "registry_authority_name": {
+          "uk": {
+            "name": "Міністерство юстиції України",
+            "abbr": null
+          },
+          "en": {
+            "name": "Ministry of Justice of Ukraine",
+            "abbr": null
+          }
+        },
+        "registry_name": {
+          "uk": {
+            "name": "Єдиний державний реєстр юридичних осіб, фізичних осіб - підприємців та громадських формувань",
+            "abbr": "ЄДР"
+          },
+          "en": {
+            "name": "Unified State Register of Legal Entities, Individual Entrepreneurs and Public Formations",
+            "abbr": null
+          }
+        },
+        "registry_code_name": {
+          "uk": {
+            "name": "ідентифікаційний код юридичної особи",
+            "abbr": null
+          },
+          "en": {
+            "name": "legal entity identification code",
+            "abbr": null
+          }
+        },
+        "tax_id_name": {
+          "uk": {
+            "name": "податковий номер",
+            "abbr": null
+          },
+          "en": {
+            "name": "tax number",
+            "abbr": null
+          }
+        },
+        "vat_id_name": {
+          "uk": {
+            "name": "індивідуальний податковий номер платника ПДВ",
+            "abbr": null
+          },
+          "en": {
+            "name": "individual tax number of a VAT payer",
+            "abbr": null
+          }
+        }
+      }
     },
     "XI": {
       "country": "Northern Ireland",
@@ -696,7 +2809,39 @@
       "super_reduced": null,
       "parking": null,
       "format": "XI + 9 digits, 12 digits, or GD/HA + 3 digits",
-      "pattern": "^XI(\\d{9}|\\d{12}|(GD|HA)\\d{3})$"
+      "pattern": "^XI(\\d{9}|\\d{12}|(GD|HA)\\d{3})$",
+      "identifiers": {
+        "registry_authority_name": {
+          "en": {
+            "name": "Companies House",
+            "abbr": null
+          }
+        },
+        "registry_name": {
+          "en": {
+            "name": "Companies House register",
+            "abbr": null
+          }
+        },
+        "registry_code_name": {
+          "en": {
+            "name": "company number",
+            "abbr": null
+          }
+        },
+        "tax_id_name": {
+          "en": {
+            "name": "Unique Taxpayer Reference",
+            "abbr": "UTR"
+          }
+        },
+        "vat_id_name": {
+          "en": {
+            "name": "VAT registration number",
+            "abbr": null
+          }
+        }
+      }
     },
     "XK": {
       "country": "Kosovo",
@@ -711,7 +2856,59 @@
       "super_reduced": null,
       "parking": null,
       "format": "9 digits",
-      "pattern": "^\\d{9}$"
+      "pattern": "^\\d{9}$",
+      "identifiers": {
+        "registry_authority_name": {
+          "sq": {
+            "name": "Agjencia për Regjistrimin e Bizneseve në Kosovë",
+            "abbr": "ARBK"
+          },
+          "en": {
+            "name": "Kosovo Business Registration Agency",
+            "abbr": null
+          }
+        },
+        "registry_name": {
+          "sq": {
+            "name": "Regjistri i Biznesit",
+            "abbr": null
+          },
+          "en": {
+            "name": "Business Register",
+            "abbr": null
+          }
+        },
+        "registry_code_name": {
+          "sq": {
+            "name": "NRB",
+            "abbr": "NRB"
+          },
+          "en": {
+            "name": "business registration number",
+            "abbr": null
+          }
+        },
+        "tax_id_name": {
+          "sq": {
+            "name": "numri fiskal",
+            "abbr": null
+          },
+          "en": {
+            "name": "fiscal number",
+            "abbr": null
+          }
+        },
+        "vat_id_name": {
+          "sq": {
+            "name": "Nr. TVSh",
+            "abbr": null
+          },
+          "en": {
+            "name": "VAT number",
+            "abbr": null
+          }
+        }
+      }
     }
   }
 }

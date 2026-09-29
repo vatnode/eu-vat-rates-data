@@ -30,7 +30,7 @@
     "vatRate": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["country", "currency", "eu_member", "vat_name", "vat_abbr", "standard", "reduced", "super_reduced", "parking", "format", "pattern"],
+      "required": ["country", "currency", "eu_member", "vat_name", "vat_abbr", "standard", "reduced", "super_reduced", "parking", "format", "pattern", "identifiers"],
       "properties": {
         "country": { "type": "string", "minLength": 1 },
         "currency": { "type": "string", "pattern": "^[A-Z]{3}$" },
@@ -42,8 +42,37 @@
         "super_reduced": { "$ref": "#/$defs/rateOrNull" },
         "parking": { "$ref": "#/$defs/rateOrNull" },
         "format": { "type": "string", "minLength": 1 },
-        "pattern": { "type": "string", "minLength": 1 }
+        "pattern": { "type": "string", "minLength": 1 },
+        "identifiers": { "$ref": "#/$defs/identifiers" }
       }
+    },
+    "identifiers": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["registry_authority_name", "registry_name", "registry_code_name", "tax_id_name", "vat_id_name"],
+      "properties": {
+        "registry_authority_name": { "$ref": "#/$defs/localizedName" },
+        "registry_name": { "$ref": "#/$defs/localizedName" },
+        "registry_code_name": { "$ref": "#/$defs/localizedName" },
+        "tax_id_name": { "$ref": "#/$defs/localizedName" },
+        "vat_id_name": { "$ref": "#/$defs/localizedName" }
+      }
+    },
+    "localizedName": {
+      "type": ["object", "null"],
+      "required": ["en"],
+      "patternProperties": {
+        "^[a-z]{2}$": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["name", "abbr"],
+          "properties": {
+            "name": { "type": "string", "minLength": 1 },
+            "abbr": { "type": ["string", "null"], "minLength": 1 }
+          }
+        }
+      },
+      "additionalProperties": false
     }
   }
 }

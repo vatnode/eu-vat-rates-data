@@ -6,6 +6,10 @@ history of [`data/eu-vat-rates-data.json`](https://github.com/vatnode/eu-vat-rat
 This file records changes to the data format, the update pipeline, and corrections
 to hand-maintained fields.
 
+## 2026-09-29
+
+- **added:** `identifiers` on every jurisdiction — `registry_authority_name`, `registry_name`, `registry_code_name`, `tax_id_name` and `vat_id_name`: the names of the company registrar, the company register, the register number, the business tax number and the VAT identification number, keyed by language (every official language plus `en`), each `{ name, abbr }`. Names only, never numbers; `null` where no official name could be confirmed. Curated by hand in `scripts/identifiers.json` and covered by the schema, the validator and the tests.
+
 ## 2026-08-23
 
 - **added:** a machine-readable JSON Schema and offline validation for the current dataset and EU-27 standard-rate history.
